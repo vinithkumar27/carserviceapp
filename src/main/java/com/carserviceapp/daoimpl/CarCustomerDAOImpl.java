@@ -147,7 +147,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   public ResultSet view()
 	   {
 		   ResultSet rs=null;
-			String showQuery="select u_name,mobileno,u_email,u_address,user_id from userdetails";
+			String showQuery="select u_name,mobileno,u_email,u_address,user_id from userdetails where usertype='user' or usertype='invalid'";
 			Connection con;
 			try {
 				con = ConnectionUtil.getDBconnection();

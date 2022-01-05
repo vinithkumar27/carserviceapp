@@ -116,22 +116,23 @@ rs = cpdao.pickupview();
 <h1><b>PickUp Reports</b></h1>
 <table >
   <tr>
+       <th>PickUp ID</th>
        <th>Customer UserID</th>
        <th>Customer Name</th>
        <th>Customer Email</th>
        <th>Customer Mobile</th>
        <th>Customer Address</th>
        <th>Center ID</th>
-       <th>PickUp ID</th>
+       
   </tr>
   <%while(rs.next()) {%>
   <tr>
        <td><%=rs.getInt(1)%></td>
-       <td><%=rs.getString(2)%></td>
-       <td><%=rs.getString(3) %></td>
-       <td><%=rs.getLong(4) %></td>
-       <td><%=rs.getString(5) %></td>
-       <td><%=rs.getInt(6)%></td>
+       <td><%=rs.getInt(2)%></td>
+       <td><%=rs.getString(3)%></td>
+       <td><%=rs.getString(4) %></td>
+       <td><%=rs.getLong(5)%></td>
+       <td><%=rs.getString(6) %></td>
        <td><%=rs.getInt(7)%></td>
   </tr>
   <%} %>

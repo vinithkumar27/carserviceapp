@@ -13,7 +13,7 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 	{
 	   public int insert(CarPickUp pickup) 
 	   {
-		   String insertQuery="insert into pickup(user_id,c_name,c_email,c_contact,pick_address,center_id) values(?,?,?,?,?,?)";
+		   String insertQuery="insert into pickup(user_id,cus_name,cus_email,cus_contact,pick_address,center_id) values(?,?,?,?,?,?)";
 		   Connection con = null;
 		   int i = 0;
 		try {

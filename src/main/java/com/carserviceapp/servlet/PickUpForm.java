@@ -56,45 +56,7 @@ public class PickUpForm extends HttpServlet {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		//centerid exception
-//		CenterDetailsDAOImpl center1 = new CenterDetailsDAOImpl();
-//		ResultSet rs = center1.showview();
-//        try {
-//			while(rs.next())
-//			{
-//				System.out.println(rs.getInt(1));
-//				if(centerid==rs.getInt(1))
-//				{
-//					CarPickUp obj1 = new CarPickUp(userid,name,email,mobileno,address,centerid);
-//					CarPickUpDAOImpl cust = new CarPickUpDAOImpl();
-//					int x =cust.insert(obj1);
-//					try {
-//						if(x==1)
-//						{
-//							response.sendRedirect("SearchUserThree.jsp");
-//						}   
-//					} catch (IOException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//				}
-//				else
-//				{
-//					try
-//					{
-//					   throw new InvalidServiceCenterException();	
-//					}catch(InvalidServiceCenterException q)
-//					{
-//					   String red = q.getMessage();
-//					   response.sendRedirect(red);
-//					}
-//				}
-//			}
-//		} catch (SQLException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}			
+		}		
 	}
 
 }

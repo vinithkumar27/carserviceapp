@@ -148,7 +148,7 @@ rs = center1.showview();
        <td><%=rs.getString(3) %></td>
        <td><%=rs.getLong(4)%></td>
        <td><%=rs.getString(5)%></td>
-       <td> <a  href="SearchUserTwo.jsp?centerId=<%=rs.getInt(1)%>" class="choosecenter"><button type="button" class="selectbtn">Select</button> </a></td>
+       <td> <a  href="SearchUserTwo.jsp?centerId=<%=rs.getInt(1)%>"><button type="button" class="selectbtn">Select</button> </a></td>
        
      </tr>
  

@@ -75,6 +75,23 @@ body
     margin-right:900px;
     margin-top:200px;
   }
+  .selectbtn
+{
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin-left:20px;
+}
+.selectbtn:hover
+{
+ background-color:white;
+ color:black;
+}
 </style>
 </head>
 <body>
@@ -94,8 +111,8 @@ body
           <fieldset>
               <legend>My Orders</legend>
                      <label for="billdet"><b>Is your car under Service...yes/no</b></label><br><br>
-                     <a href="MyOrdersOne.jsp"><button type="submit" class="yesbtn">Yes</button></a>
-                     <a href="MyOrdersTwo.jsp"><button type="submit" class="nobtn">No</button></a>                 
+                     <a href="MyOrdersOne.jsp"><button type="submit" class="selectbtn">Yes</button></a>
+                     <a href="MyOrdersTwo.jsp"><button type="submit" class="selectbtn">No</button></a>                 
           </fieldset>   
         </div>   
     </div>

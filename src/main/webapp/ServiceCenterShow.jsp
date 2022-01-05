@@ -120,6 +120,7 @@ rs = center1.showview();
        <th>Center Name</th>
        <th>Center Location</th>
        <th>Center Contact</th>
+       <th>Center Email</th>
        <th>Center Address</th>
   </tr>
   <%while(rs.next()) {%>
@@ -129,6 +130,7 @@ rs = center1.showview();
        <td><%=rs.getString(3) %></td>
        <td><%=rs.getLong(4)%></td>
        <td><%=rs.getString(5)%></td>
+       <td><%=rs.getString(6)%></td>
   </tr>
   <%} %>
 </table>

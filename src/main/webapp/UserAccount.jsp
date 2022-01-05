@@ -122,21 +122,22 @@ rs = cust.view(myaccount);
 <h1><b>My Account</b></h1>
 <table >
   <tr>
+       <th>UserID </th>
        <th>Name</th>
        <th>Mobile Number</th>
        <th>Password</th>
        <th>Email </th>
-       <th>Address </th>
-       <th>UserID </th>
+       <th>Address </th>    
   </tr>
   <%while(rs.next()) {%>
   <tr>
-       <td><%=rs.getString(1)%></td>
-       <td><%=rs.getLong(2)%></td>
-       <td><%=rs.getString(3) %></td>
+       <td> <%=rs.getInt(1)%></td>
+       <td><%=rs.getString(2)%></td>
+       <td><%=rs.getLong(3)%></td>
        <td><%=rs.getString(4) %></td>
        <td><%=rs.getString(5) %></td>
-       <td> <%=rs.getInt(6)%></td>
+       <td><%=rs.getString(6) %></td>
+      
   </tr>
   <%} %>
 </table>

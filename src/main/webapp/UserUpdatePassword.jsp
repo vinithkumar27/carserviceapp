@@ -68,6 +68,23 @@ body
   .navnames a:hover {
     background-color: #000;
   }
+  .selectbtn
+{
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin-left:10px;
+}
+.selectbtn:hover
+{
+ background-color:white;
+ color:black;
+}
 </style>
 </head>
 <body>
@@ -92,7 +109,7 @@ body
                      <label for="servnewprice"><b>New Password</b></label><br>
                      <input type="text" id="updatepassword" name="updatepassword" placeholder="Enter New Password" required><br><br>
                      
-                     <button type="submit" class="updatepassbtn">Change Password</button>
+                     <button type="submit" class="selectbtn">Change Password</button>
                      </div>
                </fieldset>
             </form>

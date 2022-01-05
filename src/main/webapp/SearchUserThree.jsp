@@ -114,6 +114,12 @@ h2
   top:100px;
 }
 </style>
+<script language="JavaScript">
+    function showInput() {
+        document.getElementById('services').innerHTML = 
+                    document.getElementById("selectbtn").value;
+    }
+  </script>
 </head>
 <body>
     <div class="container">
@@ -149,7 +155,7 @@ rs = service.view();
        <td><%=rs.getInt(2)%></td>
        <td><%=rs.getString(3) %></td>
        <td><%=rs.getInt(4) %></td>
-       <!-- <td><a href="Cart.jsp?<%=rs.getInt(4)%>">Choose service</a></td> -->
+       <td> <a  href="#services"><button type="button" class="selectbtn">Select</button> </a></td>
   </tr>
   <%} %>
 </table>
@@ -157,7 +163,7 @@ rs = service.view();
      <form action="chooseservices" method="post">
              <fieldset>
                      <label for="serviceid"><b>ServiceID</b></label><br>
-                     <input type="number" placeholder="Enter ServiceID" name="serviceid" required><br>
+                     <input type="number" placeholder="Enter ServiceID" name="serviceid" id="services" required><br>
                      <button type="submit" class="submitbtn">Submit</button>
              </fieldset>
      </form>

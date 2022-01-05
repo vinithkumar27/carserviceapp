@@ -75,6 +75,23 @@ body
     margin-left:100px;
     margin-right:1000px;
   }
+  .selectbtn
+{
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin-left:10px;
+}
+.selectbtn:hover
+{
+ background-color:white;
+ color:black;
+}
 </style>
 </head>
 <body>
@@ -97,8 +114,8 @@ body
                <legend>Delete Account</legend>
                   
                      <label for="mobno"><b>MobileNumber</b></label><br>
-                     <input type="number" placeholder="Enter Registered MobileNumber" name="mobileno" required><br>  
-                     <button type="submit" class="delcenbtn">Unsuscribe</button>
+                     <input type="number" placeholder="Enter Registered MobileNumber" name="mobileno" required><br>  <br>
+                     <button type="submit" class="selectbtn">Unsuscribe</button>
                      </div>
                </fieldset>
             </form>

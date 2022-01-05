@@ -89,7 +89,7 @@ button:hover {
                      <input type="email" id="email" name="email" placeholder="Enter email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required>
 
                      <label for="address"><b>Address</b></label>
-                     <input type="text" placeholder="Enter Address" name="address" pattern="^[#.0-9a-zA-Z\\s,-]+$" required>
+                     <input type="text" placeholder="Enter Address" name="address"  required>
                      
                       <p>Already User<a href="LogIn.jsp" style="color:red">Log-in</a></p>
 

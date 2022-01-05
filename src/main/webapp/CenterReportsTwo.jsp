@@ -120,23 +120,24 @@ rs = cpdao.admincenterview(admincenter);
 <h1><b>Services</b></h1>
 <table >
   <tr>
-       <th>User ID</th>
-       <th>Center Name</th>
-       <th>Center Email</th>
-       <th>Center Contact</th>
-       <th>Pick Address</th>
-       <th>Center ID</th>
        <th>PickUp ID</th>
+       <th>User ID</th>
+       <th>Customer Name</th>
+       <th>Customer Email</th>
+       <th>Customer Contact</th>
+       <th>PickUp Address</th>
+       <th>Center ID</th>  
   </tr>
   <%while(rs.next()) {%>
   <tr>
-       <td><%=rs.getInt(1)%></td>
-       <td><%=rs.getString(2)%></td>
-       <td><%=rs.getString(3) %></td>
-       <td><%=rs.getLong(4) %></td>
-       <td><%=rs.getString(5) %></td>
-       <td><%=rs.getInt(6) %></td>
+       <td><%=rs.getInt(1) %></td>
+       <td><%=rs.getInt(2)%></td>
+       <td><%=rs.getString(3)%></td>
+       <td><%=rs.getString(4) %></td>
+       <td><%=rs.getLong(5) %></td>
+       <td><%=rs.getString(6) %></td>
        <td><%=rs.getInt(7) %></td>
+       
   </tr>
   <%} %>
 </table>
