@@ -111,7 +111,7 @@ body
                      <input type="text" placeholder="Enter PickUp Address.." name="custaddress" required><br><br>
                      <% int centerId=(Integer.parseInt(request.getParameter("centerId").toString())); %>
                      <label for="centerid" ><b>Center ID</b></label><br>
-                     <input type="number" placeholder="Enter CenterID" name="centerid" value="<%=centerId %>" required><br><br>
+                     <input type="number" placeholder="Enter CenterID" name="centerid" value="<%=centerId %>" readonly="readonly" required><br><br>
 
                      <p>By accepting you agree to our <a href="#" style="color:red">Terms & Privacy</a>.</p>
     

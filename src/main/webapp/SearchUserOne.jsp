@@ -89,17 +89,22 @@ body
         left:100px;
         top:100px;
       }
-      .yesbtn {
+.selectbtn
+{
   background-color:black;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 5px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin-left:100px;
-  margin-top:50px;
+  font-size: 15px;
+  margin-left:60px;
+}
+.selectbtn:hover
+{
+ background-color:white;
+ color:black;
 }
 </style>
 </head>
@@ -132,6 +137,7 @@ rs = center1.showview();
        <th>Center Location</th>
        <th>Center Contact</th>
        <th>Center Address</th>
+       <th>Select Center</th>
   </tr>
   <%while(rs.next()) {%>
   
@@ -142,13 +148,11 @@ rs = center1.showview();
        <td><%=rs.getString(3) %></td>
        <td><%=rs.getLong(4)%></td>
        <td><%=rs.getString(5)%></td>
-       <td> <a  href="SearchUserTwo.jsp?centerId=<%=rs.getInt(1)%>" class="choosecenter"><button type="button">Select</button> </a></td>
+       <td> <a  href="SearchUserTwo.jsp?centerId=<%=rs.getInt(1)%>" class="choosecenter"><button type="button" class="selectbtn">Select</button> </a></td>
        
      </tr>
  
   <%} %>
 </table>
-
-   <a href="SearchUserTwo.jsp"><button type="submit" class="yesbtn">PickUp Request</button></a>
 </body>
 </html>
