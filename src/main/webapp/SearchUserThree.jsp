@@ -107,6 +107,23 @@ body
   font-size: 16px;
   margin-left:100px;
 }
+.selectbtn
+{
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin-left:60px;
+}
+.selectbtn:hover
+{
+ background-color:white;
+ color:black;
+}
 h2
 {
   position:relative;
@@ -114,12 +131,7 @@ h2
   top:100px;
 }
 </style>
-<script language="JavaScript">
-    function showInput() {
-        document.getElementById('services').innerHTML = 
-                    document.getElementById("selectbtn").value;
-    }
-  </script>
+
 </head>
 <body>
     <div class="container">
@@ -147,7 +159,7 @@ rs = service.view();
        <th>Service Cost</th>
        <th>Service Desc</th>
        <th>Service ID</th>
-       <!-- <th>Choice</th> -->
+       <th>Select Service</th>
   </tr>
   <%while(rs.next()) {%>
   <tr>
@@ -155,7 +167,7 @@ rs = service.view();
        <td><%=rs.getInt(2)%></td>
        <td><%=rs.getString(3) %></td>
        <td><%=rs.getInt(4) %></td>
-       <td> <a  href="#services"><button type="button" class="selectbtn">Select</button> </a></td>
+       <td> <button type="button" value="<%=rs.getInt(4) %>" class="selectbtn" onclick="showInput('<%=rs.getInt(4) %>')">Select</button> </a></td>
   </tr>
   <%} %>
 </table>
@@ -169,4 +181,10 @@ rs = service.view();
      </form>
     </div>
 </body>
+<script language="JavaScript">
+    function showInput(val) {
+        document.getElementById('services').value = val;
+                  
+    }
+  </script>
 </html>

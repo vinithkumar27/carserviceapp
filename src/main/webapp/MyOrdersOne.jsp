@@ -130,13 +130,17 @@ BillDetails payment = new BillDetails(userid);
 BillDetailsDAOImpl dao1 = new BillDetailsDAOImpl();
 int bill_num=0;
 	bill_num=dao1.fetchbillnum(payment);
-	
+	if(bill_num!=0)
+	{
 System.out.println(bill_num);
 session.setAttribute("bill_num",bill_num);
 int user_id=(int)(session.getAttribute("userid"));
 BillDetails obj1 = new BillDetails(user_id);
 BillDetailsDAOImpl cent = new BillDetailsDAOImpl();
 rs=cent.view(obj1);
+	}
+	
+	
 %>
 
 <h1><b>My Services</b></h1>
@@ -147,6 +151,7 @@ rs=cent.view(obj1);
        <th>Amount</th>
        <th>Status</th>
   </tr>
+ <%if(rs!=null){ %>
   <%while(rs.next()) {%>
   <tr>
        <td><%=rs.getInt(1)%></td>
@@ -154,7 +159,8 @@ rs=cent.view(obj1);
        <td><%=rs.getInt(3)%></td>
        <td><%=rs.getString(4) %></td>
   </tr>
-  <%} %>
+  <%}} %>
+  
 	      <a href="PaymentOne.jsp"><button type="submit" class="paymentone">Payment</button></a>
 </table>    
 </body>

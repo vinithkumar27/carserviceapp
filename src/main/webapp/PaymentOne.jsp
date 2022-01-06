@@ -127,7 +127,7 @@ body
                     
                     		 
                      <label for="amountpaid"><b>Amount Paid</b></label><br>
-                     <input type="number" placeholder="Enter Amount" name="amountpaid" required><br><br>
+                     <input type="number" placeholder="Enter Amount" name="amountpaid" value="<%=amount %>" readonly="readonly" required><br><br>
 
                      <p>By accepting you agree to our <a href="#" style="color:red">Terms & Privacy</a>.</p>
     

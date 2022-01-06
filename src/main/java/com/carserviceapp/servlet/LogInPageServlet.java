@@ -60,8 +60,8 @@ public class LogInPageServlet extends HttpServlet {
 				   throw new InvalidUserException();	
 				}catch(InvalidUserException e)
 				{
-				   String red = e.getMessage();
-				   response.sendRedirect(red);
+				   String invaliduser = e.getMessage();
+				   response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=LogIn.jsp");
 				}
 			}
 	}

@@ -70,9 +70,31 @@ body
   }
   h1
   {
-     position:relative;
-     left:250px;  
+     position:absolute;
+     left:300px;  
+     top:200px;
+     
   }
+  .selectbtn
+{
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin-left:60px;
+  position:absolute;
+  left:570px;  
+  top:250px;
+}
+.selectbtn:hover
+{
+ background-color:white;
+ color:black;
+}
 </style>
 </head>
 <body>
@@ -88,5 +110,10 @@ body
         <a href="#">About Us</a>
         <a href="#" >Home</a>          
        </div>
+       <%String message=request.getParameter("message");
+       String url=request.getParameter("url");
+       %>
+       <h1 class="finish"><%=message %></h1>
+    <a href="<%=url%>"><button class="selectbtn">Log-In</button></a>
 </body>
 </html>

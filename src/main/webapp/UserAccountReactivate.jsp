@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.model.*"
+    import="javax.servlet.http.HttpSession"  import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,18 +69,32 @@ body
   .navnames a:hover {
     background-color: #000;
   }
-  .finish
+   .finish
   {
     position:relative;
     left:450px;
-    top:0px;
+    top:170px;
   }
-   h2 a
-  {
+    .activatebtn
+{
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
   text-decoration: none;
-    color: #000;
-    color:white;
-  }
+  display: inline-block;
+  font-size: 15px;
+  margin-left:60px;
+  position:absolute;
+  left:570px;  
+  top:330px;
+}
+.activatebtn:hover
+{
+ background-color:white;
+ color:black;
+}
 </style>
 </head>
 <body>
@@ -93,17 +108,21 @@ body
         <a href="LogIn.jsp">Login</a>
         <a href="#">Contact Us</a>
         <a href="#">About Us</a>
-        <a href="UserPage.jsp" >Home</a>          
+        <a href="#" >Home</a>          
        </div>
     </div>
-    <form action="useraccess" method="post">  
-       <h2><a href="SearchUserOne.jsp">Search Service Center</a></h2>
-      <h2> <a href="MyOrders.jsp">My Orders</a></h2>
-       <h2><a href="UserAccount.jsp">My Account</a></h2>
-       <h2><a href="UserUpdatePassword.jsp">Change Password</a></h2>
-       <h2><a href="UserDeleteAccount.jsp">Delete My Account</a></h2>
-       <h2><a href="Index.jsp">Logout</a></h2>
-    </form> 
-    <h1 class="finish">Thansks For Using MechCent....</h1>
+    
+    <%session =request.getSession();
+	 String username=session.getAttribute("username").toString(); 
+     String password=session.getAttribute("password").toString(); 
+	 CarCustomer cust = new CarCustomer(username,password);
+	 CarCustomerDAOImpl cdao = new CarCustomerDAOImpl();
+	 int l =cdao.reactivate(cust);
+	 if(l==1)
+	 {
+		 response.sendRedirect("LogIn.jsp");
+	 }
+	 %>
+    
 </body>
 </html>

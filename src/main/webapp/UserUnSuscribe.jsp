@@ -77,10 +77,36 @@ body
    .finish1
   {
     position:relative;
-    left:520px;
+    left:470px;
     top:170px;
   }
+    .activatebtn
+{
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin-left:60px;
+  position:absolute;
+  left:570px;  
+  top:330px;
+}
+.activatebtn:hover
+{
+ background-color:white;
+ color:black;
+}
 </style>
+<script>
+function activatealrt()
+{
+  alert("your account is successfully reactivated");	
+}
+</script>
 </head>
 <body>
     <div class="container">
@@ -98,6 +124,8 @@ body
     </div>
     
     <h1 class="finish">Your Account is OutOfService....</h1>
-    <h1 class="finish1">Please Register again..</h1>
+    <h1 class="finish1">Please activate your account..</h1>
+    <a href="UserAccountReactivate.jsp"><button class="activatebtn" onclick="activatealrt()">Activate</button></a>
+    
 </body>
 </html>

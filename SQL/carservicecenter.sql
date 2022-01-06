@@ -29,7 +29,7 @@ c_contact int unique,
 c_email varchar2(40) unique,
 c_address varchar2(70) not null
 );
-insert into service_center(user_id,center_name,c_location,c_contact,c_email,c_address) values(100,'tiruveni honda','salem north',9087427702,'tiruvenihonda@gmail.com','445,ramar street,salem north');
+insert into service_center(user_id,center_name,c_location,c_contact,c_email,c_address) values(100,'vinayaka cars','salem west',9088974502,'vinayakacars@gmail.com','90,rampillai street,salem west');
 select * from service_center;
 
 
@@ -41,7 +41,7 @@ service_name varchar2(50) not null,
 service_cost int not null,
 service_desc varchar2(100) not null
 );
-insert into services(service_name,service_cost,service_desc) values('wheel alignment',8000,'machinery alignment for all wheels');
+insert into services(service_name,service_cost,service_desc) values('ac filter clean',3000,'clean all filters perfectly');
 select * from services;
 
 
@@ -52,8 +52,8 @@ pickup_id int generated always as identity start with 700 primary key,
 user_id int,
 foreign key (user_id) references userdetails(user_id),
 cus_name varchar2(40) not null,
-cus_email varchar2(50) unique,
-cus_contact int unique,
+cus_email varchar2(50),
+cus_contact int,
 pick_address varchar2(80) not null,
 center_id int,
 foreign key (center_id) references service_center(center_id)

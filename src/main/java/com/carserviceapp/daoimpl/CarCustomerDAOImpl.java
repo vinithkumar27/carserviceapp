@@ -61,7 +61,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			return "invalid";	
+			return "incorrect";	
 		}
 	   
 	   //my account option in user profile
@@ -125,6 +125,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 		}
 		return true;
 	   }
+	   //update usertype as invalid
 	   public boolean delete(CarCustomer user)
 	   {
 		   String deleteQuery="update userdetails set usertype='invalid' where mobileno=?";
@@ -144,6 +145,30 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 		}
 		return true;
 	   }
+	   //user account reactivate
+	   public int reactivate(CarCustomer user)
+	   {
+		   String deleteQuery="update userdetails set usertype='user' where u_name=? and u_password=?";
+		   Connection con = null;
+		   int l = 0;
+		try {
+			con = ConnectionUtil.getDBconnection();
+		   PreparedStatement stmt = null;
+			stmt = con.prepareStatement(deleteQuery);
+			stmt.setString(1,user.getName());
+			stmt.setString(2,user.getPassword());
+			l = stmt.executeUpdate();
+			stmt.close();
+			con.close();
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return l;
+	   }
+	   
+	   
+	   
 	   public ResultSet view()
 	   {
 		   ResultSet rs=null;

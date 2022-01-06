@@ -80,6 +80,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 				PreparedStatement pstmt=con.prepareStatement(showQuery);
 				pstmt.setInt(1, billPojo.getUser_id());
 				rs=pstmt.executeQuery();
+				return rs;
 			}catch (SQLException | ClassNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -161,6 +162,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
+			int i=0;
 			System.out.println(payment.getUser_id());
 			try {
 				con = ConnectionUtil.getDBconnection();
@@ -168,12 +170,16 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 			    System.out.println("us"+payment.getUser_id());
 				pstmt.setInt(1,payment.getUser_id());
 				 rs = pstmt.executeQuery();
+				 if(rs.next())
+				 {
+					 i=rs.getInt(1);
+				 }
 			} catch (SQLException | ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			rs.next();
-			return rs.getInt(1);
+			
+			return i;
 	   }   
 	   
 	   public  ResultSet adminview() 
