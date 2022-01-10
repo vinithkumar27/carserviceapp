@@ -44,6 +44,9 @@ public class LogInPageServlet extends HttpServlet {
 		    String val = null;
 			CarCustomer userpasscheck = new CarCustomer(username,password);
 			val = cust.fetch(userpasscheck);
+			session.setAttribute("user", val);
+			session.setAttribute("admin", val);
+			session.setAttribute("invalid", val);
 			if (val.equals("user")) {
 				response.sendRedirect("UserPage.jsp");
 			} else if (val.equals("admin")) {

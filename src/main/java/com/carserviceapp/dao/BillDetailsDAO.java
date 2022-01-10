@@ -7,7 +7,7 @@ import com.carserviceapp.model.BillDetails;
 
 public interface BillDetailsDAO
 {
-	public void insert(BillDetails bill);
+	public int insert(BillDetails bill);
 	public boolean update(BillDetails bill);
 	public ResultSet view(BillDetails billPojo);
 	public int view1(BillDetails billpojo1);

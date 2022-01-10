@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.carserviceapp.daoimpl.CarServicesDAOImpl;
 import com.carserviceapp.daoimpl.CenterDetailsDAOImpl;
@@ -41,14 +42,16 @@ public class DeleteService extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		 HttpSession session =request.getSession();
 		int serviceid = Integer.parseInt(request.getParameter("serviceid"));
 		CarServices obj1 = new CarServices(serviceid);
 		CarServicesDAOImpl cent = new CarServicesDAOImpl();
-		cent.delete(obj1);
-		if(true)
-		   {
-			   response.sendRedirect("AdminPage.jsp");
-		   }
+		boolean flag = cent.delete(obj1);
+		 if(flag)
+		 {
+			  session.setAttribute("deleteservice", true);
+		       response.sendRedirect("AdminPage.jsp");
+		  }
 	}
 
 }

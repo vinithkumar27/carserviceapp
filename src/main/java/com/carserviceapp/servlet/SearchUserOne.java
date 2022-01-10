@@ -31,7 +31,16 @@ public class SearchUserOne extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession(); 
+		int userid =(int) session.getAttribute("userid");
+		int serviceid=Integer.parseInt(request.getParameter("serviceId"));
+		ServiceDetailsDAOImpl userserv = new ServiceDetailsDAOImpl();
+		ServiceDetails serv = new ServiceDetails(userid,serviceid);
+		userserv.insert(serv);
+		if(true)
+		{
+			response.sendRedirect("SearchUserFour.jsp");
+		}
 	}
 
 	/**
@@ -40,10 +49,9 @@ public class SearchUserOne extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		// TODO Auto-generated method stub
-		doGet(request, response);
 		HttpSession session = request.getSession(); 
 		int userid =(int) session.getAttribute("userid");
-		int serviceid=Integer.parseInt(request.getParameter("serviceid"));
+		int serviceid=Integer.parseInt(request.getParameter("serviceId"));
 		ServiceDetailsDAOImpl userserv = new ServiceDetailsDAOImpl();
 		ServiceDetails serv = new ServiceDetails(userid,serviceid);
 		userserv.insert(serv);

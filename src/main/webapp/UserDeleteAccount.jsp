@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Services</title>
+    <title>User Delete Account</title>
     <link rel="stylesheet" href="carser.css">
 <style>
 *{
@@ -95,17 +95,22 @@ body
 </style>
 </head>
 <body>
+<%
+	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
+		response.sendRedirect("Index.jsp");
+	}
+	%>
     <div class="container">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
-        <a href="RegisterPage.jsp">Register</a>
-        <a href="LogIn.jsp">Login</a>
+        <a href="Logout.jsp">Logout</a>
         <a href="#">Contact Us</a>
         <a href="#">About Us</a>
-        <a href="#" >Home</a>          
+        <a href="UserPage.jsp" >Home</a>          
        </div>
         <div class="addservice">
        <h1>Unsuscribe</h1>
@@ -114,8 +119,9 @@ body
                <legend>Delete Account</legend>
                   
                      <label for="mobno"><b>MobileNumber</b></label><br>
-                     <input type="number" placeholder="Enter Registered MobileNumber" name="mobileno" required><br>  <br>
+                     <input type="number" placeholder="Enter Registered MobileNumber" name="mobileno" pattern="[6-9][0-9]{9}" required><br>  <br>
                      <button type="submit" class="selectbtn">Unsuscribe</button>
+                     <!-- <a href="UserPage.jsp" class="selectbtn">Back</a>   -->
                      </div>
                </fieldset>
             </form>

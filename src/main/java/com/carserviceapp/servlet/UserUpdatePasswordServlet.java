@@ -1,6 +1,8 @@
 package com.carserviceapp.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,11 +49,12 @@ public class UserUpdatePasswordServlet extends HttpServlet {
 		 String password=request.getParameter("updatepassword");
 		 CarCustomer obj1 = new CarCustomer(userid,password);
 		 CarCustomerDAOImpl cent = new CarCustomerDAOImpl ();
-		 cent.update(obj1);
-		 if(true)
-			{
-				response.sendRedirect("Index.jsp");
-			}
+		 boolean flag = cent.update(obj1);
+		 if(flag)
+		 {
+			  session.setAttribute("passchange", true);
+		       response.sendRedirect("LogIn.jsp");
+		  }
 	}
 
 }

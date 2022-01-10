@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Service Center</title>
+    <title>Add Service Center</title>
     <link rel="stylesheet" href="carser.css">
 <style>
 *{
@@ -75,17 +75,40 @@ body
     margin-left:100px;
     margin-right:1000px;
   }
+   .addcenbtn {
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position:relative;
+  top:-10px;
+  left:10px;
+}
+.addcenbtn:hover
+{
+  background-color:white;
+  color:black;
+}
 </style>
 </head>
 <body>
+<%
+	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
+		response.sendRedirect("Index.jsp");
+	}
+	%>
     <div class="container">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
-        <a href="RegisterPage.jsp">Register</a>
-        <a href="LogIn.jsp">Login</a>
+        <a href="Logout.jsp">Logout</a>
         <a href="#">Contact Us</a>
         <a href="#">About Us</a>
         <a href="AdminPage.jsp" >Home</a>          
@@ -95,29 +118,33 @@ body
           <form action="centerdetail" method="post">
             <fieldset>
                <legend>Add Service Center</legend>
-                  
-                     <label for="user"><b>UserId</b></label><br>
-                     <input type="text" placeholder="Enter UserId" name="userid" required><br>
                      
                      <label for="centername"><b>Service Center Name</b></label><br>
-                     <input type="text" placeholder="Enter CenterName" name="centername" required><br>
+                     <input type="text" placeholder="Enter CenterName" name="centername" pattern="^[#.0-9a-zA-Z\s,-]+$" required><br>
                      
                       <label for="centerlocation"><b>Service Center Location</b></label><br>
-                     <input type="text" placeholder="Enter CenterName" name="centerlocation" required><br>
+                     <input type="text" placeholder="Enter CenterName" name="centerlocation" pattern="^[#.0-9a-zA-Z\s,-]+$" required><br>
 
                      <label for="centermob"><b>Service Center Contact</b></label><br>
                      <input type="tel" id="mob" name="centercontact" pattern="[6-9][0-9]{9}" placeholder="Enter Center Mobilenumber" required><br>
 
                      <label for="email"><b>Service Center Email</b></label><br>
-                     <input type="email" id="centeremail" name="centeremail" placeholder="Enter Center Email" required><br>
+                     <input type="email" id="centeremail" name="centeremail" placeholder="Enter Center Email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required><br>
 
                      <label for="address"><b>Service Center Address</b></label><br>
-                     <input type="text" placeholder="Enter Center Address" name="centeraddress" required><br><br>
+                     <input type="text" placeholder="Enter Center Address" name="centeraddress" pattern="^[#.0-9a-zA-Z\s,-]+$" required><br><br>
                      
-                     <button type="submit" class="addcenbtn">Add Center</button>
+                     <button type="submit" class="addcenbtn" onclick="addcenter()">Add Center</button>
+                     <a href="AdminPage.jsp" class="addcenbtn">Back</a>
                      </div>
                </fieldset>
             </form>
     </div>
+     <script>
+            function addcenter()
+                {
+            	   alert("Service Center is Added Successfully..");
+                }
+      </script>
 </body>
 </html>

@@ -75,20 +75,53 @@ body
     margin-left:100px;
     margin-right:1000px;
   }
+   .addcenbtn {
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position:relative;
+  top:-5px;
+  left:5px;
+}
+#addcen
+{
+   position:absolute;
+   top:325px;
+   left:350px;
+}
+.addcenbtn:hover
+{
+ background-color:white;
+ color:black;
+}
+fieldset
+{
+ width:400px;
+}
 </style>
 </head>
 <body>
+<%
+	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
+		response.sendRedirect("Index.jsp");
+	}
+	%>
     <div class="container">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
-        <a href="RegisterPage.jsp">Register</a>
-        <a href="LogIn.jsp">Login</a>
+        <a href="Logout.jsp">Logout</a>
         <a href="#">Contact Us</a>
         <a href="#">About Us</a>
-        <a href="#" >Home</a>          
+        <a href="AdminPage.jsp" >Home</a>          
        </div>
         <div class="addservice">
        <h1>Update ServiceCenter</h1>
@@ -97,12 +130,13 @@ body
                <legend>Update Service Center</legend>
                   
                      <label for="center"><b>CenterId</b></label><br>
-                     <input type="text" placeholder="Enter CenterId" name="centerid" required><br>
+                     <input type="text" placeholder="Enter CenterId" name="centerid" pattern="^[0-9]{3}$" required><br>
 
                      <label for="newcentermob"><b>New Contact Number</b></label><br>
                      <input type="tel" id="mob" name="updatecentercontact" pattern="[6-9][0-9]{9}" placeholder="Enter New Center Mobilenumber" required><br><br>
                      
                      <button type="submit" class="addcenbtn">Update Center Contact</button>
+                     <a href="AdminPage.jsp" class="addcenbtn" id="addcen">Back</a>
                      </div>
                </fieldset>
             </form>

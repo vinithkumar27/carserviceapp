@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java.sql.*" import="com.carserviceapp.daoimpl.*"  import="com.carserviceapp.dao.*"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bill Reports</title>
+    <title>LogOut</title>
     <link rel="stylesheet" href="carser.css">
 <style>
 *{
@@ -16,7 +16,7 @@
 body
 {
     height: 100vh;
-    background: url(https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/pdp/s60-fuel/s60-hero-21x9.jpg?iar=0&w=1366);
+    background-image: url(https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/pdp/s60-fuel/s60-hero-21x9.jpg?iar=0&w=1366);
     background-position: center;
     background-size:cover;
      color:white;
@@ -68,40 +68,6 @@ body
   .navnames a:hover {
     background-color: #000;
   }
-   table,th,td
-      {
-          border:1px solid black;
-          border-collapse: collapse;
-          border-bottom: 1px solid black;
-      }
-      tr:hover {background-color: black;}
-      table
-      {
-        width:80%;
-        height:100px;
-        margin-left:100px;
-        margin-right:100px;
-        margin-top:100px;
-      }
-      h1
-      {
-        position:absolute;
-        left:100px;
-        top:120px;
-      }
-      	.billreportback {
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  position:relative;
-  top:50px;
-  left:110px;
-}
 </style>
 </head>
 <body>
@@ -117,38 +83,18 @@ body
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
-        <a href="Logout.jsp">Logout</a>
+        <a href="RegisterPage.jsp">Register</a>
+        <a href="LogIn.jsp">Login</a>
         <a href="#">Contact Us</a>
         <a href="#">About Us</a>
-        <a href="AdminPage.jsp" >Home</a>          
+        <a href="Index.jsp" >Home</a>          
        </div>
     </div>
+    <%
+    session =request.getSession();
+    request.getSession().invalidate();
+    response.sendRedirect("Index.jsp"); 
+    %>
     
-     <%!ResultSet rs; %>
-<%
-BillDetailsDAOImpl bDao = new BillDetailsDAOImpl();
-rs= bDao.adminview();
-%>
-
-<h1><b>PickUp Reports</b></h1>
-<table >
-  <tr>
-       <th>BillNo</th>
-       <th>UserID</th>
-       <th>Service-Date</th>
-       <th>Amount</th>
-       <th>Status</th>
-  </tr>
-  <%while(rs.next()) {%>
-  <tr>
-       <td><%=rs.getInt(1)%></td>
-       <td><%=rs.getInt(2)%></td>
-       <td><%=rs.getDate(3)%></td>
-       <td><%=rs.getInt(4)%></td>
-       <td><%=rs.getString(5) %></td>
-  </tr>
-  <%} %>
-</table>
-<a href="AdminPage.jsp"><button type="submit" class="billreportback">Back</button></a>
 </body>
 </html>

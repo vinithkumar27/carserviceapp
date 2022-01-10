@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Service Center</title>
+    <title>Payment</title>
     <link rel="stylesheet" href="carser.css">
 <style>
 *{
@@ -80,20 +80,38 @@ body
      margin-right:800px;
      margin-top:60px;
   }
+  .signupbtn {
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position:relative;
+  top:30px;
+  left:100px;
+}
 </style>
 </head>
 <body>
+<%
+	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
+		response.sendRedirect("Index.jsp");
+	}
+	%>
     <div class="container">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
-        <a href="RegisterPage.jsp">Register</a>
-        <a href="LogIn.jsp">Login</a>
+        <a href="Logout.jsp">Logout</a>
         <a href="#">Contact Us</a>
         <a href="#">About Us</a>
-        <a href="#" >Home</a>          
+        <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
     <form action="paymentpage" method="post">
@@ -103,16 +121,16 @@ body
                      <hr>
                      
                       <label for="cardnum"><b>Card Number</b></label><br>
-                     <input type="number" placeholder="Enter CardNumber" name="cardnum" required><br><br>
+                     <input type="number" placeholder="Enter CardNumber" name="cardnum" pattern="^[0-9]{16}$" required><br><br>
                      
                      <label for="holdername"><b>Card Holder Name</b></label><br>
-                    <input type="text" placeholder="Enter CardHolderName" name="holdername" required><br><br>                     
+                    <input type="text" placeholder="Enter CardHolderName" name="holdername" pattern="[a-zA-Z]{3,}" required><br><br>                     
 
                      <label for="expdate"><b>Exp Date</b></label><br>
                      <input type="month" id="expdate" name="expdate" min="2022-03" max="2030-03" placeholder="Enter ExpDate" required><br><br>
-                     
+                     <!-- "^(((0)[0-9])|((1)[0-2]))(\\/)\\d{2}$" -->
                      <label for="cvvno"><b>Cvv No.</b></label><br>
-                     <input type="number" placeholder="Enter CvvNo" name="cvvno" required><br><br>
+                     <input type="password" placeholder="Enter CvvNo" name="cvvno" pattern="^[0-9]{3}$" required><br><br>
                      <%!ResultSet rs;
                     		 int amount;%>
                      <%  

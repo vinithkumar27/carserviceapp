@@ -75,17 +75,43 @@ body
     margin-left:100px;
     margin-right:1000px;
   }
+   .addbill {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.addbill:hover
+{
+ background-color:white;
+ color:black;
+}
+#addbill1
+{
+ position:absolute;
+ top:290px;
+ left:250px;
+}
 </style>
 </head>
 <body>
+<%
+	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
+		response.sendRedirect("Index.jsp");
+	}
+	%>
     <div class="container">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
-        <a href="RegisterPage.jsp">Register</a>
-        <a href="LogIn.jsp">Login</a>
+        <a href="Logout.jsp">Logout</a>
         <a href="#">Contact Us</a>
         <a href="#">About Us</a>
         <a href="AdminPage.jsp" >Home</a>          
@@ -97,11 +123,12 @@ body
                <legend>Generate Bill</legend>
                   
                      <label for="userid"><b>UserId</b></label><br>
-                     <input type="text" placeholder="Enter UserId" name="userid" required><br>  
+                     <input type="text" placeholder="Enter UserId" name="userid" pattern="^[0-9]{3}$" required><br>  
                      <label for="servdate"><b>Service Date</b></label><br>
-                     <input type="date" placeholder="Enter Service Date" name="servdate" required><br><br>
-                     <button type="submit" class="delcenbtn" onclick="generatebill()">Generate Bill</button>
+                     <input type="date" placeholder="Enter Service Date" id="datefield" name="servdate" required><br><br>
+                     <button type="submit" class="addbill" onclick="generatebill()">Generate Bill</button>
                      </div>
+                     <a href="AdminPage.jsp" class="addbill" id="addbill1">Back</a>
                </fieldset>
             </form>
             <script>
@@ -109,6 +136,20 @@ body
                 {
             	   alert("Bill is Generated..");
                 }
+             
+            var today = new Date();
+            var dd = today.getDate()-4;
+            var mm = today.getMonth()+1;
+            var yyyy = today.getFullYear();
+            if(dd<10){
+              dd='0'+dd
+            } 
+            if(mm<10){
+              mm='0'+mm
+            } 
+
+            today = yyyy+'-'+mm+'-'+dd;
+            document.getElementById("datefield").setAttribute("min", today);
             </script>
     </div>
 </body>

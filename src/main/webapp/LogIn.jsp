@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log-in page</title>
+    <title>Log-In</title>
     <style>
    
         form{
@@ -41,6 +41,14 @@
              padding: 10px 18px;
              background-color: #f44336;
         } 
+        .registerbtn
+        {
+             width:auto;
+             padding: 10px 18px;
+             background-color: #f44336;
+             position:relative;
+             left:310px;
+        } 
         .imgcontainer{
             text-align: center;
             margin: 24px 0 12px 0;
@@ -71,7 +79,12 @@
     </style>
 </head>
 <body>
-    
+   <%
+   if(session.getAttribute("passchange") != null){%>
+	   <h1>Password Changed Successfully!!</h1>
+	   
+   <%session.removeAttribute("passchange"); }
+   %>
       <form action="loginpage" method="post">
           <fieldset>
               <div class="imgcontainer">
@@ -80,17 +93,18 @@
 
             <div class="container">
                 <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter username" name="uname" required>
+                <input type="text" placeholder="Enter username" name="uname" pattern="[a-zA-Z\\s]{3,}" required autofocus>
 
-                 <label for="psw">Password</label>
-                 <input type="password" placeholder="Enter password" name="psw" required>
+                 <label for="psw"><b>Password</b></label>
+                 <input type="password" placeholder="Enter password" name="psw" pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
 
                  <button type="submit">Login</button>
             </div>
 
             <div class="container">
-                 <button type="button" class="cancelbtn">Cancel</button>
-                 <span class="psw">Forgot <a href="#">password?</a></span>
+                 <a href="Index.jsp"><button type="button" class="cancelbtn">Cancel</button></a>
+                 <!-- <span class="psw">Forgot <a href="UserUpdatePassword.jsp">password?</a></span> -->
+                 <a href="RegisterPage.jsp"><button type="button" class="registerbtn">Register</button></a>
             </div>
         </fieldset>
       </form>  

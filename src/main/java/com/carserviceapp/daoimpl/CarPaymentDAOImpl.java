@@ -23,7 +23,6 @@ public class CarPaymentDAOImpl implements CarPaymentDAO
 			stmt.setInt(1,payment.getBill_num());
 			stmt.setLong(2,payment.getCard_no());
 			stmt.setString(3,payment.getCardhol_name());
-			
 			System.out.println(new java.sql.Date(payment.getExpiry_date().getTime()));
 			stmt.setDate(4,new java.sql.Date(payment.getExpiry_date().getTime()));
 			stmt.setInt(5,payment.getCvv_no());

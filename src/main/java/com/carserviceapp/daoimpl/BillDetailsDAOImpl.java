@@ -8,11 +8,12 @@ import com.carserviceapp.dao.BillDetailsDAO;
 import com.carserviceapp.model.*;
 public class BillDetailsDAOImpl implements BillDetailsDAO
 {
-	   public void insert(BillDetails bill) 
+	   public int insert(BillDetails bill) 
 	   {
 		   //String insertQuery="insert into bill(pickup_id,user_id,service_id,detail_id,serv_date,amount) values(?,?,?,?,?,?)";
 		   String insertQuery="insert into bill(user_id,serv_date,amount) values (?,?,(SELECT sum(service_cost) from services where service_id in (select service_id from service_details where user_id in ?)))";
 		   Connection con = null;
+		   int i = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
 		   PreparedStatement stmt = null;
@@ -20,8 +21,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 			stmt = con.prepareStatement(insertQuery);
 			stmt.setInt(1,bill.getUser_id());
 			stmt.setDate(2,java.sql.Date.valueOf(bill.getServ_date()));
-			stmt.setInt(3,bill.getAmount());
-		   int i = 0;
+			stmt.setInt(3,bill.getAmount()); 
 			i = stmt.executeUpdate();
 			stmt.close();
 			con.close();
@@ -30,6 +30,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 		{
 			e.printStackTrace();
 		}
+		return i;
 	   }
 	   public boolean update(BillDetails bill)
 	   {
@@ -167,7 +168,7 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 			try {
 				con = ConnectionUtil.getDBconnection();
 			    pstmt = con.prepareStatement(query);
-			    System.out.println("us"+payment.getUser_id());
+			   
 				pstmt.setInt(1,payment.getUser_id());
 				 rs = pstmt.executeQuery();
 				 if(rs.next())

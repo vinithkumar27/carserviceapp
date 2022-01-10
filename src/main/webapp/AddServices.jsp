@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Service Center</title>
+    <title>Add Services</title>
     <link rel="stylesheet" href="carser.css">
 <style>
 *{
@@ -75,17 +75,37 @@ body
     margin-left:100px;
     margin-right:1000px;
   }
+   .addservbtn {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.addservbtn:hover
+{
+ background-color:white;
+ color:black;
+}
 </style>
 </head>
 <body>
+<%
+	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
+		response.sendRedirect("Index.jsp");
+	}
+	%>
     <div class="container">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
-        <a href="RegisterPage.jsp">Register</a>
-        <a href="LogIn.jsp">Login</a>
+        <a href="Logout.jsp">Logout</a>
         <a href="#">Contact Us</a>
         <a href="#">About Us</a>
         <a href="AdminPage.jsp" >Home</a>          
@@ -97,15 +117,16 @@ body
                <legend>Add Services</legend>
                   
                      <label for="services"><b>Service Name</b></label><br>
-                     <input type="text" placeholder="Enter Service Name" name="servname" required><br>
+                     <input type="text" placeholder="Enter Service Name" name="servname" pattern="[a-zA-Z\s]{3,}" required><br>
                      
                      <label for="servicecost"><b>Service Cost</b></label><br>
-                     <input type="number" placeholder="Enter Service Cost" name="servcost" required><br>
+                     <input type="number" placeholder="Enter Service Cost" name="servcost" pattern="^[0-9]{3,}$"required><br>
                      
                       <label for="servicedesc"><b>Service Description</b></label><br>
-                     <input type="text" placeholder="Enter Ser" name="servdesc" required><br>
+                     <input type="text" placeholder="Enter Ser" name="servdesc" pattern="^[#.0-9a-zA-Z\s,-]+$" required><br>
                      
                      <button type="submit" class="addservbtn">Add Services</button>
+                     <a href="AdminPage.jsp" class="addservbtn">Back</a>
                      </div>
                </fieldset>
             </form>

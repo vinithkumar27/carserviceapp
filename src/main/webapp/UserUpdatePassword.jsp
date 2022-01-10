@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Service Center</title>
+    <title>Update Password..</title>
     <link rel="stylesheet" href="carser.css">
 <style>
 *{
@@ -85,31 +85,56 @@ body
  background-color:white;
  color:black;
 }
+ .changepasspage {
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 5px 17px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position:absolute;
+  top:195px;
+  left:180px;
+}
+.changepasspage:hover
+{
+ background-color:white;
+ color:black;
+}
 </style>
 </head>
 <body>
+<%
+	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
+		response.sendRedirect("Index.jsp");
+	}
+	%>
     <div class="container">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
-        <a href="RegisterPage.jsp">Register</a>
-        <a href="LogIn.jsp">Login</a>
+        <a href="Logout.jsp">Logout</a>
         <a href="#">Contact Us</a>
         <a href="#">About Us</a>
-        <a href="#" >Home</a>          
+        <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
+     
     <h1>Change Password</h1>
           <form action="updatepassword" method="post">
             <fieldset>
                <legend>Change Password</legend>
 
                      <label for="servnewprice"><b>New Password</b></label><br>
-                     <input type="text" id="updatepassword" name="updatepassword" placeholder="Enter New Password" required><br><br>
+                     <input type="text" id="updatepassword" name="updatepassword" placeholder="Enter New Password" pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br><br>
                      
                      <button type="submit" class="selectbtn">Change Password</button>
+                      <a href="UserDeleteAccount.jsp" class="selectbtn">Delete Account</a>
                      </div>
                </fieldset>
             </form>

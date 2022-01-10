@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Service Center</title>
+    <title>SearchCenter(2)</title>
     <link rel="stylesheet" href="carser.css">
 <style>
 *{
@@ -74,20 +74,44 @@ body
      margin-right:800px;
      margin-top:60px;
   }
+  .signupbtn
+{
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  position:relative;
+  left:10px;
+  top:-10px;
+}
+.signupbtn:hover
+{
+ background-color:white;
+ color:black;
+}
 </style>
 </head>
 <body>
+<%
+	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
+		response.sendRedirect("Index.jsp");
+	}
+	%>
     <div class="container">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
-        <a href="RegisterPage.jsp">Register</a>
-        <a href="LogIn.jsp">Login</a>
+        <a href="Logout.jsp">Logout</a>
         <a href="#">Contact Us</a>
         <a href="#">About Us</a>
-        <a href="#" >Home</a>          
+        <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
     <form action="pickuprequest" method="post">
@@ -97,25 +121,25 @@ body
                      <p>Please fill in this form for pickup purposes</p>
                      <hr>
                      
-                     <label for="mob"><b>Customer Name</b></label><br>
-                    <input type="text" placeholder="Enter Name" name="custname" required><br><br>
+                     <label for="cusname"><b>Customer Name</b></label><br>
+                    <input type="text" placeholder="Enter Name" name="custname" pattern="[a-zA-Z\\s]{3,}" required><br><br>
 
                      <label for="email"><b>Customer Email</b></label><br>
-                      <input type="email" id="email" name="custemail" placeholder="Enter email" required><br><br>
-                     
+                      <input type="email" id="email" name="custemail" placeholder="Enter email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required><br><br>
 
                      <label for="contact"><b>Customer Contact</b></label><br>
                      <input type="tel" id="mob" name="custmob" pattern="[6-9][0-9]{9}" placeholder="Enter Mobilenumber" required><br><br>
 
                      <label for="address"><b>Car PickupAddress</b></label><br>
-                     <input type="text" placeholder="Enter PickUp Address.." name="custaddress" required><br><br>
+                     <input type="text" placeholder="Enter PickUp Address.." name="custaddress" pattern="^[#.0-9a-zA-Z\s,-]+$" required><br><br>
                      <% int centerId=(Integer.parseInt(request.getParameter("centerId").toString())); %>
                      <label for="centerid" ><b>Center ID</b></label><br>
-                     <input type="number" placeholder="Enter CenterID" name="centerid" value="<%=centerId %>" readonly="readonly" required><br><br>
+                     <input type="number" placeholder="Enter CenterID" name="centerid" value="<%=centerId %>" readonly="readonly" pattern="^[0-9]{3}$" required><br><br>
 
-                     <p>By accepting you agree to our <a href="#" style="color:red">Terms & Privacy</a>.</p>
+                     <p>By accepting you agree to our <a href="#" style="color:red">Terms & Privacy</a>.</p><br>
     
                      <div class="clearfix">
+                      <a href="SearchUserOne.jsp" class="signupbtn">Back</a>
                          <button type="submit" class="signupbtn">Submit</button>
                     </div> 
                </div>

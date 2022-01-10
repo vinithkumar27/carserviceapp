@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.carserviceapp.daoimpl.*;
 import com.carserviceapp.model.*;
@@ -39,15 +40,17 @@ public class UpdateService extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		 HttpSession session =request.getSession();
 		 int serviceid=Integer.parseInt(request.getParameter("serviceid"));
 		 int newprice=Integer.parseInt(request.getParameter("updateservcost"));
 		 CarServices obj1 = new CarServices(serviceid,newprice);
 		 CarServicesDAOImpl cent = new CarServicesDAOImpl ();
-		 cent.update(obj1);
-		 if(true)
-		   {
-			   response.sendRedirect("AdminPage.jsp");
-		   }
+		 boolean flag = cent.update(obj1);
+		 if(flag)
+		 {
+			  session.setAttribute("updateprice",true);
+		       response.sendRedirect("AdminPage.jsp");
+		 }
 	}
 	
 

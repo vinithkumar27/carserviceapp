@@ -81,22 +81,20 @@ button:hover {
                      <input type="tel" id="mob" name="mob" pattern="[6-9][0-9]{9}" title="mobile number should be 10 numbers" placeholder="Enter Mobilenumber" required>
 
                      <label for="password"><b>Password</b></label>
-                     <input type="password" id="password" name="password" placeholder="Enter password" required>
-
-   <!-- Password validation   "(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" -->
+                     <input type="password" id="password" name="password" pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter password" required>
 
                      <label for="email"><b>Email</b></label>
                      <input type="email" id="email" name="email" placeholder="Enter email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required>
 
                      <label for="address"><b>Address</b></label>
-                     <input type="text" placeholder="Enter Address" name="address"  required>
+                     <input type="text" placeholder="Enter Address" name="address" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
                      
-                      <p>Already User<a href="LogIn.jsp" style="color:red">Log-in</a></p>
+                     <!--  <p>Already User<a href="LogIn.jsp" style="color:red">Log-in</a></p>  -->
 
                      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
     
                      <div class="clearfix">
-                         <button type="button" class="cancelbtn">Cancel</button>
+                         <a href="Index.jsp"><button type="button" class="cancelbtn">Cancel</button></a>
                         <button type="submit" class="signupbtn">Sign Up</button>
                      </div>
                      

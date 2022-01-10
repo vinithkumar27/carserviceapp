@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Service Center</title>
+    <title>Center Reports</title>
     <link rel="stylesheet" href="carser.css">
 <style>
 *{
@@ -68,30 +68,74 @@ body
   .navnames a:hover {
     background-color: #000;
   }
+  .backbtn{
+  background-color:black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position:absolute;
+  top:130px;
+  left:20px;
+}
+.searchbtn
+{
+background-color:black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position:relative;
+  top:10px;
+  left:5px;
+}
+.searchbtn:hover
+{
+ background-color:white;
+ color:black;
+}
+fieldset{
+position:absolute;
+top:200px;
+left:200px;
+ width:300px;
+ height:110px;
+}
 </style>
 </head>
 <body>
+<%
+	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
+		response.sendRedirect("Index.jsp");
+	}
+	%>
     <div class="container">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
-        <a href="RegisterPage.jsp">Register</a>
-        <a href="LogIn.jsp">Login</a>
+       <a href="Logout.jsp">Logout</a>
         <a href="#">Contact Us</a>
         <a href="#">About Us</a>
-        <a href="#" >Home</a>          
+        <a href="AdminPage.jsp" >Home</a>          
        </div>
     </div>
     
     <form action="centerreports" method="post">
     <fieldset>
         <label for="centerid"><b>CenterID</b></label><br>
-                     <input type="number" placeholder="Enter CenterID" name="centerid" required><br>
-          
+                     <input type="number" placeholder="Enter CenterID" name="centerid" pattern="^[0-9]{3}$" required><br>
                      <button type="submit" class="searchbtn">Search</button>
-    </fieldset>
-    </form>
+                     <a href="AdminPage.jsp" class="searchbtn">Back</a>
+   </fieldset>
+    </form> 
 </body>
 </html>
