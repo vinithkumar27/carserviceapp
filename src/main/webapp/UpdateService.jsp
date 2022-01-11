@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Services</title>
-    <link rel="stylesheet" href="carser.css">
+           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 *{
  margin: 0;
@@ -23,6 +24,14 @@ body
      color:white;
     font-size:large;
 }
+ form{
+            border: 3px solid #f1f1f1;
+            margin-left:0px;
+            margin-right:800px;
+            padding:10px;
+            height:230px;
+            width:330px;
+        }
 .heading
 {
   position: absolute;
@@ -34,7 +43,7 @@ body
     color:#fff;
     position: relative;
     left: 10px;
-    top: 1px;
+    top: -8px;
     font-size: 40px;
     text-decoration: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -45,7 +54,7 @@ body
     position: relative;
     text-decoration: none;
     left: 10px;
-    top: -2px;
+    top: -18px;
     font-size: 18px;
     font-family:Georgia, 'Times New Roman', Times, serif;   
 }
@@ -71,24 +80,18 @@ body
   }
   .addservice
   {
-   margin-top:50px;
-    margin-left:100px;
-    margin-right:1000px;
+   margin-top:30px;
+    margin-left:140px;
+    margin-right:800px;
   }
-   .updatebtn {
-  background-color: black;
-  border: none;
-  color: white;
-  padding: 15px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-.updatebtn:hover
+.btn:hover
 {
  background-color:white;
  color:black;
+}
+h2
+{
+ display:inline;
 }
 </style>
 </head>
@@ -99,33 +102,33 @@ body
 		response.sendRedirect("Index.jsp");
 	}
 	%>
-    <div class="container">
+    <div class="topnavbar">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
         <a href="Logout.jsp">Logout</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="AdminPage.jsp" >Home</a>          
        </div>
         <div class="addservice">
-       <h1>Update Service Price</h1>
+       <h2>Update Service Price</h2>
           <form action="updateservice" method="post">
-            <fieldset>
-               <legend>Update Service Price</legend>
-                  
-                     <label for="service"><b>ServiceId</b></label><br>
-                     <input type="number" placeholder="Enter ServiceId" name="serviceid" pattern="^[0-9]{3}$" required><br>
-
-                     <label for="servnewprice"><b>New Service Price</b></label><br>
-                     <input type="number" id="servamount" name="updateservcost" placeholder="Enter New Price" pattern="^[0-9]{3,}$" required><br><br>
-                     
-                     <button type="submit" class="updatebtn">Update Price</button>
-                     <a href="AdminPage.jsp" class="updatebtn">Back</a>
+                  <div class="mb-1 mt-1">
+                     <label for="service" class="form-label"><b>ServiceId</b></label><br>
+                     <input type="number" class="form-control" placeholder="Enter ServiceId" name="serviceid" pattern="^[0-9]{3}$" required>
+                   </div>
+                   <div class="mb-2 mt-2">
+                     <label for="servnewprice" class="form-label"><b>New Service Price</b></label><br>
+                     <input type="number" id="servamount" class="form-control" name="updateservcost" placeholder="Enter New Price" pattern="^[0-9]{3,}$" required>
+                  </div>
+                  <div class="mb-1 mt-1">
+                     <button type="submit" class="btn btn-dark">Update Price</button>
+                     <a href="AdminPage.jsp" class="btn btn-dark">Back</a>
+                  </div>   
                      </div>
-               </fieldset>
             </form>
     </div>
 </body>

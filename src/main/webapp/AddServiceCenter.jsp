@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Service Center</title>
-    <link rel="stylesheet" href="carser.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 *{
  margin: 0;
@@ -23,6 +24,12 @@ body
      color:white;
     font-size:large;
 }
+form
+{
+  border:3px solid #f1f1f1;
+  padding:10px;
+  width:400px;
+}
 .heading
 {
   position: absolute;
@@ -34,7 +41,7 @@ body
     color:#fff;
     position: relative;
     left: 10px;
-    top: 1px;
+    top: -8px;
     font-size: 40px;
     text-decoration: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -45,7 +52,7 @@ body
     position: relative;
     text-decoration: none;
     left: 10px;
-    top: -2px;
+    top: -18px;
     font-size: 18px;
     font-family:Georgia, 'Times New Roman', Times, serif;   
 }
@@ -73,22 +80,9 @@ body
   {
    margin-top:50px;
     margin-left:100px;
-    margin-right:1000px;
+    margin-right:500px;
   }
-   .addcenbtn {
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  position:relative;
-  top:-10px;
-  left:10px;
-}
-.addcenbtn:hover
+.btn:hover
 {
   background-color:white;
   color:black;
@@ -102,42 +96,45 @@ body
 		response.sendRedirect("Index.jsp");
 	}
 	%>
-    <div class="container">
+    <div class="topnavbar">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
         <a href="Logout.jsp">Logout</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="AdminPage.jsp" >Home</a>          
        </div>
         <div class="addservice">
        <h1>ServiceCenter Entry Form</h1>
           <form action="centerdetail" method="post">
-            <fieldset>
                <legend>Add Service Center</legend>
-                     
-                     <label for="centername"><b>Service Center Name</b></label><br>
-                     <input type="text" placeholder="Enter CenterName" name="centername" pattern="^[#.0-9a-zA-Z\s,-]+$" required><br>
-                     
-                      <label for="centerlocation"><b>Service Center Location</b></label><br>
-                     <input type="text" placeholder="Enter CenterName" name="centerlocation" pattern="^[#.0-9a-zA-Z\s,-]+$" required><br>
-
-                     <label for="centermob"><b>Service Center Contact</b></label><br>
-                     <input type="tel" id="mob" name="centercontact" pattern="[6-9][0-9]{9}" placeholder="Enter Center Mobilenumber" required><br>
-
-                     <label for="email"><b>Service Center Email</b></label><br>
-                     <input type="email" id="centeremail" name="centeremail" placeholder="Enter Center Email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required><br>
-
-                     <label for="address"><b>Service Center Address</b></label><br>
-                     <input type="text" placeholder="Enter Center Address" name="centeraddress" pattern="^[#.0-9a-zA-Z\s,-]+$" required><br><br>
-                     
-                     <button type="submit" class="addcenbtn" onclick="addcenter()">Add Center</button>
-                     <a href="AdminPage.jsp" class="addcenbtn">Back</a>
+                      <hr>
+                      <div class="mt-1 mb-1">
+                     <label for="centername" class="form-label"><b>Service Center Name</b></label>
+                     <input type="text" class="form-control" placeholder="Enter CenterName" name="centername" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
                      </div>
-               </fieldset>
+                     <div class="mt-1 mb-1">
+                      <label for="centerlocation" class="form-label"><b>Service Center Location</b></label>
+                     <input type="text" class="form-control" placeholder="Enter CenterName" name="centerlocation" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
+                     </div>
+                     <div class="mt-1 mb-1">
+                     <label for="centermob" class="form-label"><b>Service Center Contact</b></label>
+                     <input type="tel" id="mob" class="form-control" name="centercontact" pattern="[6-9][0-9]{9}" placeholder="Enter Center Mobilenumber" required>
+                     </div>
+                     <label for="email" class="form-label"><b>Service Center Email</b></label>
+                     <input type="email" id="centeremail" class="form-control" name="centeremail" placeholder="Enter Center Email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required>
+                     <div class="mt-1 mb-1">
+                     <label for="address" class="form-label"><b>Service Center Address</b></label>
+                     <input type="text" class="form-control" placeholder="Enter Center Address" name="centeraddress" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
+                     </div>
+                     <div class="mt-3 mb-0">
+                     <button type="submit" class="btn btn-dark" onclick="addcenter()">Add Center</button>
+                     <a href="AdminPage.jsp" class="btn btn-dark">Back</a>
+                     </div>
+                     </div>
             </form>
     </div>
      <script>

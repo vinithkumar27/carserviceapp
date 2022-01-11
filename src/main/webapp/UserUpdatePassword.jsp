@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import = "com.carserviceapp.servlet.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Password..</title>
-    <link rel="stylesheet" href="carser.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 *{
  margin: 0;
@@ -22,6 +23,14 @@ body
      color:white;
     font-size:large;
 }
+ form{
+            border: 3px solid #f1f1f1;
+            margin-left:0px;
+            margin-right:800px;
+            padding:10px;
+            height:170px;
+            width:400px;
+        }
 .heading
 {
   position: absolute;
@@ -33,7 +42,7 @@ body
     color:#fff;
     position: relative;
     left: 10px;
-    top: 1px;
+    top: -8px;
     font-size: 40px;
     text-decoration: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -44,7 +53,7 @@ body
     position: relative;
     text-decoration: none;
     left: 10px;
-    top: -2px;
+    top: -18px;
     font-size: 18px;
     font-family:Georgia, 'Times New Roman', Times, serif;   
 }
@@ -68,40 +77,21 @@ body
   .navnames a:hover {
     background-color: #000;
   }
-  .selectbtn
-{
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  margin-left:10px;
-}
-.selectbtn:hover
+  .btn
+  {
+    position:relative;
+    bottom:50px; 
+  }
+.btn:hover
 {
  background-color:white;
  color:black;
 }
- .changepasspage {
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 5px 17px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  position:absolute;
-  top:195px;
-  left:180px;
-}
-.changepasspage:hover
+#backbtn
 {
- background-color:white;
- color:black;
+  position:relative;
+  top:-50px;
+  left:0px;
 }
 </style>
 </head>
@@ -112,31 +102,32 @@ body
 		response.sendRedirect("Index.jsp");
 	}
 	%>
-    <div class="container">
+    <div class="topnavbar">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
         <a href="Logout.jsp">Logout</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
      
-    <h1>Change Password</h1>
+ <div class="container mt-3">
+    <h2>Change Password</h2>
           <form action="updatepassword" method="post">
             <fieldset>
-               <legend>Change Password</legend>
-
+                 <div class="mb-3 mt-3">
                      <label for="servnewprice"><b>New Password</b></label><br>
-                     <input type="text" id="updatepassword" name="updatepassword" placeholder="Enter New Password" pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br><br>
-                     
-                     <button type="submit" class="selectbtn">Change Password</button>
-                      <a href="UserDeleteAccount.jsp" class="selectbtn">Delete Account</a>
-                     </div>
+                     <input type="password" id="updatepassword" class="form-control" name="updatepassword" placeholder="Enter New Password" pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br><br>
+                  </div>   
+                     <button type="submit" class="btn btn-dark">Change Password</button>
+                      <a href="UserDeleteAccount.jsp" class="btn btn-dark">Delete Account</a>
+                      <a href="updateback11" class="btn btn-dark" id="backbtn">Back</a>
                </fieldset>
             </form>
+   </div>    
 </body>
 </html>

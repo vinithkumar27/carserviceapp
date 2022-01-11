@@ -72,7 +72,7 @@ body
   {
     position:relative;
     left:450px;
-    top:0px;
+    top:160px;
   }
    h2 a
   {
@@ -96,19 +96,11 @@ body
        </div>
        <div class="navnames">
         <a href="Logout.jsp">Logout</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="UserPage.jsp" >Home</a>          
        </div>
-    </div>
-    <form action="useraccess" method="post">  
-       <h2><a href="SearchUserOne.jsp">Search Service Center</a></h2>
-      <h2> <a href="MyOrders.jsp">My Orders</a></h2>
-       <h2><a href="UserAccount.jsp">My Account</a></h2>
-       <h2><a href="UserUpdatePassword.jsp">Change Password</a></h2>
-       <h2><a href="UserDeleteAccount.jsp">Delete My Account</a></h2>
-       <h2><a href="Index.jsp">Logout</a></h2>
-    </form> 
+    </div> 
     <h1 class="finish">Thansks For Using MechCent....</h1>
 </body>
 </html>

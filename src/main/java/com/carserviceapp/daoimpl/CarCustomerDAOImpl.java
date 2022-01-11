@@ -125,6 +125,30 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 		}
 		return true;
 	   }
+	   
+	   //forgot password
+	   public boolean forgotpassword(CarCustomer user)
+	   {
+		  String updateQuery="update userdetails set u_password=? where mobileno=?";
+		  Connection con = null;
+		try {
+			con = ConnectionUtil.getDBconnection();
+     	  PreparedStatement stmt = null;
+			stmt = con.prepareStatement(updateQuery);
+			stmt.setString(1,user.getPassword());
+			stmt.setLong(2,user.getMobileno());
+		  int k = 0;
+			k = stmt.executeUpdate();
+			stmt.close();
+			con.close();
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return true;
+	   }
+	   
+	   
 	   //update usertype as invalid
 	   public boolean delete(CarCustomer user)
 	   {

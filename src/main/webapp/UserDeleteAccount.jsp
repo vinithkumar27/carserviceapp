@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Delete Account</title>
-    <link rel="stylesheet" href="carser.css">
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 *{
  margin: 0;
@@ -23,6 +24,14 @@ body
      color:white;
     font-size:large;
 }
+ form{
+            border: 3px solid #f1f1f1;
+            margin-left:0px;
+            margin-right:800px;
+            width:300px;
+            padding:10px;
+            height:170px;
+        }
 .heading
 {
   position: absolute;
@@ -34,7 +43,7 @@ body
     color:#fff;
     position: relative;
     left: 10px;
-    top: 1px;
+    top: -8px;
     font-size: 40px;
     text-decoration: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -45,7 +54,7 @@ body
     position: relative;
     text-decoration: none;
     left: 10px;
-    top: -2px;
+    top: -18px;
     font-size: 18px;
     font-family:Georgia, 'Times New Roman', Times, serif;   
 }
@@ -75,19 +84,12 @@ body
     margin-left:100px;
     margin-right:1000px;
   }
-  .selectbtn
+.btn
 {
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  margin-left:10px;
+    position:relative;
+    top:-50px;
 }
-.selectbtn:hover
+.btn:hover
 {
  background-color:white;
  color:black;
@@ -101,15 +103,15 @@ body
 		response.sendRedirect("Index.jsp");
 	}
 	%>
-    <div class="container">
+    <div class="topnavbar">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
         <a href="Logout.jsp">Logout</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="UserPage.jsp" >Home</a>          
        </div>
         <div class="addservice">
@@ -119,8 +121,8 @@ body
                <legend>Delete Account</legend>
                   
                      <label for="mobno"><b>MobileNumber</b></label><br>
-                     <input type="number" placeholder="Enter Registered MobileNumber" name="mobileno" pattern="[6-9][0-9]{9}" required><br>  <br>
-                     <button type="submit" class="selectbtn">Unsuscribe</button>
+                     <input type="tel" placeholder="Enter Registered MobileNumber" class="form-control" name="mobileno" pattern="[6-9][0-9]{9}" required><br>  <br>
+                     <button type="submit" class="btn btn-dark">Unsuscribe</button>
                      <!-- <a href="UserPage.jsp" class="selectbtn">Back</a>   -->
                      </div>
                </fieldset>

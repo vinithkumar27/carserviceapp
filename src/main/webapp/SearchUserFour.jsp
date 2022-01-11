@@ -8,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SearchCenter(4)</title>
-    <link rel="stylesheet" href="carser.css">
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 *{
  margin: 0;
@@ -34,7 +35,7 @@ body
     color:#fff;
     position: relative;
     left: 10px;
-    top: 1px;
+    top: -8px;
     font-size: 40px;
     text-decoration: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -45,7 +46,7 @@ body
     position: relative;
     text-decoration: none;
     left: 10px;
-    top: -2px;
+    top: -18px;
     font-size: 18px;
     font-family:Georgia, 'Times New Roman', Times, serif;   
 }
@@ -90,56 +91,13 @@ body
         left:100px;
         top:100px;
       }
-       .addmore {
-  background-color: black;
-  border: none;
-  color: white;
-  padding: 15px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
- position:absolute;
-  right:290px;
-  top:220px;
-}
- .addmore1 {
-  background-color: black;
-  border: none;
-  color: white;
-  padding: 15px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
- position:absolute;
-  right:170px;
-  top:220px;
-}
- .addmore2 {
-  background-color: black;
-  border: none;
-  color: white;
-  padding: 15px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  position:absolute;
-  right:20px;
-  top:220px;
-}
-.addmore:hover
-{
- background-color:white;
- color:black;
-}
-.addmore1:hover
-{
- background-color:white;
- color:black;
-}
-.addmore2:hover
+      .btn
+      {
+        position:relative;
+        left:950px;
+        top:150px;
+      }
+.btn:hover
 {
  background-color:white;
  color:black;
@@ -153,21 +111,21 @@ body
 		response.sendRedirect("Index.jsp");
 	}
 	%>
-    <div class="container">
+    <div class="topnavbar">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
         <a href="Logout.jsp">Logout</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
     
-   <a href="SearchUserThree.jsp"><button class="addmore">Add More Services</button></a>
-   <a href="SearchUserFive.jsp"><button class="addmore1">No Thanks</button></a>
-   <a href="SearchUserFive.jsp"><button class="addmore2">Go For Service</button></a>
+   <a href="SearchUserThree.jsp"><button class="btn btn-dark">Add More Services</button></a>
+   <a href="SearchUserFive.jsp"><button class="btn btn-dark">No Thanks</button></a>
+   <a href="SearchUserFive.jsp"><button class="btn btn-dark">Go For Service</button></a>
 </body>
 </html>

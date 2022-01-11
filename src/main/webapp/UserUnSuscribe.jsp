@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Unsuscribe</title>
-    <link rel="stylesheet" href="carser.css">
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
 <style>
 *{
  margin: 0;
@@ -33,7 +35,7 @@ body
     color:#fff;
     position: relative;
     left: 10px;
-    top: 1px;
+    top: -8px;
     font-size: 40px;
     text-decoration: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -44,7 +46,7 @@ body
     position: relative;
     text-decoration: none;
     left: 10px;
-    top: -2px;
+    top: -18px;
     font-size: 18px;
     font-family:Georgia, 'Times New Roman', Times, serif;   
 }
@@ -80,22 +82,13 @@ body
     left:470px;
     top:170px;
   }
-    .activatebtn
-{
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  margin-left:60px;
-  position:absolute;
-  left:570px;  
-  top:330px;
-}
-.activatebtn:hover
+    .btn
+    {
+       position:relative;
+       top:118px;
+       left:1020px;
+    }
+.btn:hover
 {
  background-color:white;
  color:black;
@@ -115,7 +108,7 @@ function activatealrt()
 		response.sendRedirect("Index.jsp");
 	}
 	%>
-    <div class="container">
+    <div class="topnavbar">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
@@ -123,15 +116,15 @@ function activatealrt()
        <div class="navnames">
         <a href="RegisterPage.jsp">Register</a>
         <a href="LogIn.jsp">Login</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
     
     <h1 class="finish">Your Account is OutOfService....</h1>
     <h1 class="finish1">Please activate your account..</h1>
-    <a href="UserAccountReactivate.jsp"><button class="activatebtn" onclick="activatealrt()">Activate</button></a>
+    <a href="UserAccountReactivate.jsp"><button class="btn btn-dark" onclick="activatealrt()">Activate</button></a>
     
 </body>
 </html>

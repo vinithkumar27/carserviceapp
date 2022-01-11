@@ -7,7 +7,8 @@ pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SearchCenter(1)</title>
-    <link rel="stylesheet" href="carser.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 *{
  margin: 0;
@@ -33,7 +34,7 @@ body
     color:#fff;
     position: relative;
     left: 10px;
-    top: 1px;
+    top: -8px;
     font-size: 40px;
     text-decoration: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -44,7 +45,7 @@ body
     position: relative;
     text-decoration: none;
     left: 10px;
-    top: -2px;
+    top: -18px;
     font-size: 18px;
     font-family:Georgia, 'Times New Roman', Times, serif;   
 }
@@ -73,20 +74,19 @@ body
           border:1px solid black;
           border-collapse: collapse;
           border-bottom: 1px solid black;
+          color:white;
       }
-      tr:hover {background-color: black;}
+      tr:hover {background-color: black;color:white;}
       table
       {
         width:80%;
         height:100px;
-        margin-left:100px;
-        margin-right:100px;
         margin-top:150px;
       }
       h1
       {
         position:absolute;
-        left:100px;
+        left:115px;
         top:170px;
       }
 .selectbtn
@@ -118,7 +118,7 @@ body
     font-size: 17px;
     font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-  .signupbtn
+/*  .signupbtn
 {
   background-color:black;
   border: none;
@@ -131,11 +131,23 @@ body
   position:relative;
   left:100px;
   top:15px;
+}*/
+.btn
+{
+  position:relative;
+  top:10px;
+  left:130px;
 }
-.signupbtn:hover
+.btn:hover
 {
  background-color:white;
  color:black;
+}
+td a
+{
+  position:relative;
+  top:-10px;
+  left:-100px;
 }
 </style>
 </head>
@@ -146,15 +158,15 @@ body
 		response.sendRedirect("Index.jsp");
 	}
 	%>
-    <div class="container">
+    <div class="topnavbar">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
         <a href="Logout.jsp">Logout</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
@@ -170,8 +182,10 @@ CenterDetailsDAOImpl center1 = new CenterDetailsDAOImpl();
 rs = center1.showview();
 %>
 
+<div class="container mt-1">
 <h1><b>ServiceCenters</b></h1>
-<table >
+<table  class="table table-bordered table-sm">
+<thead class="table-dark">
   <tr>
        <th>Center ID</th>
        <th>Center Name</th>
@@ -180,6 +194,7 @@ rs = center1.showview();
        <th>Center Address</th>
        <th>Select Center</th>
   </tr>
+  </thead>
   <%while(rs.next()) {%>
   
        <tr>
@@ -189,11 +204,12 @@ rs = center1.showview();
        <td><%=rs.getString(3) %></td>
        <td><%=rs.getLong(4)%></td>
        <td><%=rs.getString(5)%></td>
-       <td> <a  href="SearchUserTwo.jsp?centerId=<%=rs.getInt(1)%>"><button type="button" class="selectbtn">Select</button> </a></td>     
+       <td> <a  href="SearchUserTwo.jsp?centerId=<%=rs.getInt(1)%>"><button type="button" class="btn btn-dark">Select</button> </a></td>     
      </tr>
  
   <%} %>
 </table>
-<a href="UserPage.jsp" class="signupbtn">Back</a>
+</div>
+<a href="UserPage.jsp" class="btn btn-dark">Back</a>
 </body>
 </html>

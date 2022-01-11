@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SearchCenter(5)</title>
-    <link rel="stylesheet" href="carser.css">
 <style>
 *{
  margin: 0;
@@ -83,20 +82,20 @@ body
 		response.sendRedirect("Index.jsp");
 	}
 	%>
-    <div class="container">
+    <div class="topnavbar">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
         <a href="Logout.jsp">Logout</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
     
-    <h1 class="finish">Thansks For Using MechCent....</h1>
+    <h1 class="finish">Thanks For Using MechCent....</h1>
     <h2 class="finish">Our Service Engineers Contact Soon...</h2>
 </body>
 </html>

@@ -68,6 +68,40 @@ body
   .navnames a:hover {
     background-color: #000;
   }
+  .col{
+    flex-basis: 50%;
+}
+h1{
+    color: #fff;
+    font-size: 100px;
+}
+
+p{
+    color: white;
+    font-size: 11px;
+    line-height: 15px;
+}
+button{
+    width: 150px;
+    color: #000;
+    font-size: 12px;
+    padding: 12px 0;
+    background: #fff;
+    border: 0;
+    border-radius: 20px;
+    outline: none;
+    margin-top: 30px;
+    cursor:pointer;
+}
+#paragh
+{
+  font-size:15px;
+}
+  .row{
+    display: flex;
+    height: 88%;
+    align-items:center;
+}
 </style>
 </head>
 <body>
@@ -90,5 +124,13 @@ body
 	   
    <%session.removeAttribute("userinactive"); }
    %>
+  <div class="row"> 
+    <div class="col">
+                         <h1>MECHcent</h1>
+                         <p id="paragh">Stay in the comforts of your home or office and make the most of our complimentary pick-up and drop-in service.
+ Count on us to be your personal car care expert, advisor and car mechanic.</p>
+                             <a href="LogIn.jsp"><button type="button">Explore</button></a>
+                     </div>
+    </div>                 
 </body>
 </html>

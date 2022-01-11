@@ -8,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <link rel="stylesheet" href="carser.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 *{
  margin: 0;
@@ -34,7 +35,7 @@ body
     color:#fff;
     position: relative;
     left: 10px;
-    top: 1px;
+    top: -8px;
     font-size: 40px;
     text-decoration: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -45,7 +46,7 @@ body
     position: relative;
     text-decoration: none;
     left: 10px;
-    top: -2px;
+    top: -18px;
     font-size: 18px;
     font-family:Georgia, 'Times New Roman', Times, serif;   
 }
@@ -74,38 +75,35 @@ body
           border:1px solid black;
           border-collapse: collapse;
           border-bottom: 1px solid black;
+          color:white;
       }
-      tr:hover {background-color: black;}
+      tr:hover {background-color: black;color:white;}
       td
       {text-align:center;
       }
       table
       {
         width:80%;
-        height:100px;
-        margin-left:100px;
-        margin-right:100px;
+        height:50px;
         margin-top:100px;
       }
       h1
       {
         position:relative;
-        left:100px;
+        left:0px;
         top:100px;
       }
-      .paymentone1 {
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  position:absolute;
-  top:360px;
-  left:110px;
-}
+      .btn
+     {
+        position:relative;
+        top:40px;
+        left:130px;
+     }
+     .btn:hover
+     {
+         background-color:white;
+         color:black;
+     }
 </style>
 </head>
 <body>
@@ -115,7 +113,7 @@ body
 		response.sendRedirect("Index.jsp");
 	}
 	%>
-    <div class="container">
+    <div class="topnavbar">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
@@ -137,8 +135,10 @@ CarCustomerDAOImpl cust = new CarCustomerDAOImpl();
 rs = cust.view(myaccount);
 %>
 
+<div class="container mt-1">
 <h1><b>My Account</b></h1>
-<table >
+<table  class="table table-bordered table-sm">
+<thead class="table-dark">
   <tr>
        <th>UserID </th>
        <th>Name</th>
@@ -147,6 +147,7 @@ rs = cust.view(myaccount);
        <th>Email </th>
        <th>Address </th>    
   </tr>
+  </thead>
   <%while(rs.next()) {%>
   <tr>
        <td> <%=rs.getInt(1)%></td>
@@ -159,6 +160,7 @@ rs = cust.view(myaccount);
   </tr>
   <%} %>
 </table>
-<a href="UserPage.jsp"><button type="submit" class="paymentone1">Back</button></a>
+</div>
+<a href="UserPage.jsp"><button type="submit" class="btn btn-dark">Back</button></a>
 </body>
 </html>

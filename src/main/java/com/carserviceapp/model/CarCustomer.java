@@ -75,6 +75,12 @@ public CarCustomer(int user_id,String password)
 }
 
 
+public CarCustomer(long mobileno,String password)
+{
+	super();
+	this.password = password;
+	this.mobileno = mobileno;
+}
 
 public CarCustomer(String name, String password) {
 	super();

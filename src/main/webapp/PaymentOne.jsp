@@ -13,7 +13,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
-    <link rel="stylesheet" href="carser.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 *{
  margin: 0;
@@ -28,6 +29,17 @@ body
      color:white;
     font-size:large;
 }
+form{
+            border: 3px solid #f1f1f1;
+            margin-left:0px;
+            margin-right:800px;
+            padding:10px;
+            height:590px;
+            width:420px;
+            position:absolute;
+            left:10px;
+            top:20px;
+        }
 .heading
 {
   position: absolute;
@@ -39,7 +51,7 @@ body
     color:#fff;
     position: relative;
     left: 10px;
-    top: 1px;
+    top: -8px;
     font-size: 40px;
     text-decoration: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -50,7 +62,7 @@ body
     position: relative;
     text-decoration: none;
     left: 10px;
-    top: -2px;
+    top: -18px;
     font-size: 18px;
     font-family:Georgia, 'Times New Roman', Times, serif;   
 }
@@ -80,18 +92,36 @@ body
      margin-right:800px;
      margin-top:60px;
   }
-  .signupbtn {
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  .btn
+{
   position:relative;
-  top:30px;
-  left:100px;
+  top:-60px;
+}
+.btn:hover
+{
+ background-color:white;
+ color:black;
+}
+.mb-0
+{
+ position:relative;
+ top:-10px;
+ bottom:2px;
+}
+p
+{
+ position:relative;
+ top:-30px;
+}
+#terms
+{
+  position:relative;
+ top:-60px;
+}
+.cash
+{
+  position:relative;
+ top:-40px;
 }
 </style>
 </head>
@@ -102,35 +132,42 @@ body
 		response.sendRedirect("Index.jsp");
 	}
 	%>
-    <div class="container">
+    <div class="topnavbar">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
         <a href="Logout.jsp">Logout</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
+    
+   <div class="container mt-1"> 
     <form action="paymentpage" method="post">
                <div class="register">
                <fieldset>
-                     <h1>Payment</h1>
+                     <h2>Payment</h2>
                      <hr>
-                     
+                     <div class="mb-0 mt-0">
                       <label for="cardnum"><b>Card Number</b></label><br>
                      <input type="number" placeholder="Enter CardNumber" name="cardnum" pattern="^[0-9]{16}$" required><br><br>
-                     
+                     </div>
+                     <div class="mb-0 mt-0">
                      <label for="holdername"><b>Card Holder Name</b></label><br>
                     <input type="text" placeholder="Enter CardHolderName" name="holdername" pattern="[a-zA-Z]{3,}" required><br><br>                     
-
+                      </div>
+                      <div class="mb-0 mt-0">
                      <label for="expdate"><b>Exp Date</b></label><br>
                      <input type="month" id="expdate" name="expdate" min="2022-03" max="2030-03" placeholder="Enter ExpDate" required><br><br>
+                     </div>
                      <!-- "^(((0)[0-9])|((1)[0-2]))(\\/)\\d{2}$" -->
+                     <div class="mb-0 mt-0">
                      <label for="cvvno"><b>Cvv No.</b></label><br>
                      <input type="password" placeholder="Enter CvvNo" name="cvvno" pattern="^[0-9]{3}$" required><br><br>
+                     </div>
                      <%!ResultSet rs;
                     		 int amount;%>
                      <%  
@@ -143,14 +180,14 @@ body
                     		 %>
                     	<p>your bill is ..<%=amount%></p> 		                   		 
                     
-                    		 
+                    <div class="mb-0 mt-0 cash">		 
                      <label for="amountpaid"><b>Amount Paid</b></label><br>
                      <input type="number" placeholder="Enter Amount" name="amountpaid" value="<%=amount %>" readonly="readonly" required><br><br>
-
-                     <p>By accepting you agree to our <a href="#" style="color:red">Terms & Privacy</a>.</p>
+                    </div>
+                     <p id="terms">By accepting you agree to our <a href="#" style="color:red">Terms & Privacy</a>.</p>
     
                      <div class="clearfix">
-                         <button type="submit" class="signupbtn">Submit</button>
+                         <button type="submit" class="btn btn-dark">Submit</button>
                     </div> 
                </div>
                 </fieldset>
