@@ -16,10 +16,10 @@
 body
 {
     height: 100vh;
-    background-image: url('assets/carindex.jpg');
-    background-position: center;
+background-image: url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
+    background-position:center;
     background-size:cover;
-     color:white;
+    color:white;
     font-size:large;
 }
 .heading
@@ -50,7 +50,6 @@ body
 }
 .navnames {
     width: 100%;
-    background-color: #555;
     overflow: auto;
     height: 70px;
   }
@@ -120,9 +119,11 @@ button{
     </div>
      <%
    if(session.getAttribute("userinactive") != null){%>
-	   <h1 style="position:absolute; top:80px; right:50px;">Your Account is Successfully Removed!!</h1>
-	   
-   <%session.removeAttribute("userinactive"); }
+	   <h1 style="position:absolute; top:80px; right:50px; font-size:30px; color:black;">Your Account is Successfully Removed!!</h1>   
+   <%session.removeAttribute("userinactive"); 
+   session =request.getSession();
+   request.getSession().invalidate();
+   }
    %>
   <div class="row"> 
     <div class="col">

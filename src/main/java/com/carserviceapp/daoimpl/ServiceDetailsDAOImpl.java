@@ -18,13 +18,13 @@ public class ServiceDetailsDAOImpl implements ServiceDetailsDAO
 	   {
 		   String insertQuery="insert into service_details(user_id,service_id) values(?,?)";
 		   Connection con = null;
+		   int i = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
 		   PreparedStatement stmt = null;
 			stmt = con.prepareStatement(insertQuery);
 			stmt.setInt(1,details.getUser_id());
 			stmt.setInt(2,details.getService_id());
-		   int i = 0;
 			i = stmt.executeUpdate();
 			stmt.close();
 			con.close();
@@ -32,7 +32,11 @@ public class ServiceDetailsDAOImpl implements ServiceDetailsDAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return true;
+		if(i>0)
+		{
+			return true;
+		}
+		return false;
 	   }
 
 	 public List<ServiceDetails> view() 
@@ -59,12 +63,13 @@ public class ServiceDetailsDAOImpl implements ServiceDetailsDAO
 		}
 	 public boolean delete(ServiceDetails service)
 	   {
+		 int l =0;
 		   try {
 		   String deleteQuery="delete from service_details where service_id=?";
 		   Connection con =ConnectionUtil.getDBconnection();
 		   PreparedStatement stmt =con.prepareStatement(deleteQuery);
 		   stmt.setInt(1,service.getService_id());
-		   int l = stmt.executeUpdate();
+		    l= stmt.executeUpdate();
 		   //System.out.println(l+" row is deleted");
 		   stmt.close();
 		   con.close();
@@ -72,6 +77,10 @@ public class ServiceDetailsDAOImpl implements ServiceDetailsDAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	if(l>0)
+	{
 		return true;
+	}
+	    return false;
 	   }
 }

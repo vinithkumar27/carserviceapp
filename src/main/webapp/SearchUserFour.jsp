@@ -18,9 +18,11 @@
 body
 {
     height: 100vh;
-    background: url(https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/pdp/s60-fuel/s60-hero-21x9.jpg?iar=0&w=1366);
+   background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
     background-position: center;
     background-size:cover;
+      background-repeat:no-repeat;
+    background-attachment: fixed;
      color:white;
     font-size:large;
 }
@@ -52,7 +54,6 @@ body
 }
 .navnames {
     width: 100%;
-    background-color: #555;
     overflow: auto;
     height: 70px;
   }
@@ -70,6 +71,12 @@ body
   .navnames a:hover {
     background-color: #000;
   }
+  .addmorebtns
+      {
+          position:absolute;
+        left:-800px;
+        top:100px;
+      }
    table,th,td
       {
           border:1px solid black;
@@ -97,6 +104,7 @@ body
         left:950px;
         top:150px;
       }
+      
 .btn:hover
 {
  background-color:white;
@@ -123,9 +131,10 @@ body
         <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
-    
+  <div class="addmorebtns">  
    <a href="SearchUserThree.jsp"><button class="btn btn-dark">Add More Services</button></a>
    <a href="SearchUserFive.jsp"><button class="btn btn-dark">No Thanks</button></a>
    <a href="SearchUserFive.jsp"><button class="btn btn-dark">Go For Service</button></a>
+   </div>
 </body>
 </html>

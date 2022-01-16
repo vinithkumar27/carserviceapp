@@ -23,7 +23,7 @@
 body
 {
     height: 100vh;
-    background: url(https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/pdp/s60-fuel/s60-hero-21x9.jpg?iar=0&w=1366);
+   background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
     background-position: center;
     background-size:cover;
      color:white;
@@ -68,7 +68,6 @@ form{
 }
 .navnames {
     width: 100%;
-    background-color: #555;
     overflow: auto;
     height: 70px;
   }
@@ -146,27 +145,27 @@ p
     </div>
     
    <div class="container mt-1"> 
-    <form action="paymentpage" method="post">
+    <form action="paymentpage" method="post" class="was-validated">
                <div class="register">
                <fieldset>
                      <h2>Payment</h2>
                      <hr>
                      <div class="mb-0 mt-0">
-                      <label for="cardnum"><b>Card Number</b></label><br>
-                     <input type="number" placeholder="Enter CardNumber" name="cardnum" pattern="^[0-9]{16}$" required><br><br>
+                      <label for="cardnum" class="form-label"><b>Card Number</b></label><br>
+                     <input type="text" class="form-control" placeholder="Enter CardNumber" name="cardnum" required pattern="[0-9]{16}" title="please enter 16 numbers" >
                      </div>
                      <div class="mb-0 mt-0">
-                     <label for="holdername"><b>Card Holder Name</b></label><br>
-                    <input type="text" placeholder="Enter CardHolderName" name="holdername" pattern="[a-zA-Z]{3,}" required><br><br>                     
+                     <label for="holdername" class="form-label"><b>Card Holder Name</b></label><br>
+                    <input type="text" placeholder="Enter CardHolderName" class="form-control" name="holdername" pattern="[a-zA-Z]{3,}" required>                  
                       </div>
                       <div class="mb-0 mt-0">
-                     <label for="expdate"><b>Exp Date</b></label><br>
-                     <input type="month" id="expdate" name="expdate" min="2022-03" max="2030-03" placeholder="Enter ExpDate" required><br><br>
+                     <label for="expdate" class="form-label"><b>Expiry Date</b></label><br>
+                     <input type="month" id="expdate" class="form-control" name="expdate" min="2022-03" max="2030-03" placeholder="Enter ExpDate" required>
                      </div>
                      <!-- "^(((0)[0-9])|((1)[0-2]))(\\/)\\d{2}$" -->
                      <div class="mb-0 mt-0">
-                     <label for="cvvno"><b>Cvv No.</b></label><br>
-                     <input type="password" placeholder="Enter CvvNo" name="cvvno" pattern="^[0-9]{3}$" required><br><br>
+                     <label for="cvvno" class="form-label"><b>CVV</b></label><br>
+                     <input type="password" class="form-control" placeholder="Enter CvvNo" name="cvvno" pattern="^[0-9]{3}$" required><br>
                      </div>
                      <%!ResultSet rs;
                     		 int amount;%>
@@ -181,8 +180,8 @@ p
                     	<p>your bill is ..<%=amount%></p> 		                   		 
                     
                     <div class="mb-0 mt-0 cash">		 
-                     <label for="amountpaid"><b>Amount Paid</b></label><br>
-                     <input type="number" placeholder="Enter Amount" name="amountpaid" value="<%=amount %>" readonly="readonly" required><br><br>
+                     <label for="amountpaid" class="form-label"><b>Amount Paid</b></label><br>
+                     <input type="number" placeholder="Enter Amount" class="form-control" name="amountpaid" value="<%=amount %>" readonly="readonly" required><br>
                     </div>
                      <p id="terms">By accepting you agree to our <a href="#" style="color:red">Terms & Privacy</a>.</p>
     

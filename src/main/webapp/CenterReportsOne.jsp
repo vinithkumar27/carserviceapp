@@ -17,7 +17,7 @@
 body
 {
     height: 100vh;
-    background: url(https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/pdp/s60-fuel/s60-hero-21x9.jpg?iar=0&w=1366);
+   background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
     background-position: center;
     background-size:cover;
      color:white;
@@ -60,7 +60,6 @@ body
 }
 .navnames {
     width: 100%;
-    background-color: #555;
     overflow: auto;
     height: 70px;
   }
@@ -83,6 +82,10 @@ body
  background-color:white;
  color:black;
 }
+.centerreports
+{
+  margin-top:130px;
+}
 </style>
 </head>
 <body>
@@ -104,7 +107,7 @@ body
         <a href="AdminPage.jsp" >Home</a>          
        </div>
     </div>
-    
+    <div class="centerreports"> 
     <form action="centerreports" method="post">
     <fieldset>
         <label for="centerid"><h3>CenterID</h3></label><br>
@@ -112,6 +115,8 @@ body
                      <button type="submit" class="btn btn-dark">Search</button>
                      <a href="AdminPage.jsp" class="btn btn-dark">Back</a>
    </fieldset>
+  
     </form> 
+     </div>
 </body>
 </html>

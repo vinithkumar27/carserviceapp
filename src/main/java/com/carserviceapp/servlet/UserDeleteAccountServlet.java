@@ -27,5 +27,4 @@ public class UserDeleteAccountServlet extends HttpServlet {
 		       response.sendRedirect("Index.jsp");
 		  }
 	}
-
 }

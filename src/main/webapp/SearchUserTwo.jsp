@@ -17,9 +17,11 @@
 body
 {
     height: 100vh;
-   background: url(https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/pdp/s60-fuel/s60-hero-21x9.jpg?iar=0&w=1366);
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
     background-position: center;
     background-size:cover;
+      background-repeat:no-repeat;
+    background-attachment: fixed;
      color:white;
     font-size:large;
 }
@@ -28,7 +30,7 @@ form{
             margin-left:0px;
             margin-right:800px;
             padding:10px;
-            height:640px;
+            height:650px;
             width:420px;
             position:absolute;
             left:10px;
@@ -62,7 +64,6 @@ form{
 }
 .navnames {
     width: 100%;
-    background-color: #555;
     overflow: auto;
     height: 70px;
   }
@@ -90,7 +91,7 @@ form{
 .btn
 {
   position:relative;
-  top:-40px;
+  top:10px;
 }
 .btn:hover
 {
@@ -127,36 +128,41 @@ form{
     </div>
     
  <div class="container mt-1"> 
-    <form action="pickuprequest" method="post">
+    <form action="pickuprequest" method="post" class="was-validated">
                <div class="register">
                <fieldset>
                      <h1>PickUp Request Form</h1>
                      <p>Please fill in this form for pickup purposes</p>
                      <hr>
-                  <div class="mb-0 mt-0">
-                     <label for="cusname"><b>Customer Name</b></label><br>
-                    <input type="text" placeholder="Enter Name" name="custname" pattern="[a-zA-Z\\s]{3,}" required><br><br>
+                  <div class="mb-0 mt-1">
+                     <label for="cusname" class="form-label"><b>Customer Name</b></label><br>
+                    <input type="text" placeholder="Enter Name" class="form-control" title="username should be more than 3 characters" name="custname" pattern="[a-zA-Z\\s]{3,}" required>
                   </div>
-                  <div class="mb-0 mt-0">
-                     <label for="email"><b>Customer Email</b></label><br>
-                      <input type="email" id="email" name="custemail" placeholder="Enter email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required><br><br>
+                  <div class="mb-0 mt-1">
+                     <label for="email" class="form-label"><b>Customer Email</b></label><br>
+                      <input type="email" id="email" name="custemail"class="form-control" placeholder="Enter email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required>
                   </div>
-                  <div class="mb-0 mt-0">
-                     <label for="contact"><b>Customer Contact</b></label><br>
-                     <input type="tel" id="mob" name="custmob" pattern="[6-9][0-9]{9}" placeholder="Enter Mobilenumber" required><br><br>
+                  <div class="mb-0 mt-1">
+                     <label for="contact" class="form-label"><b>Customer Contact</b></label><br>
+                     <input type="tel" id="mob" name="custmob" class="form-control" title="mobile number should be 10 numbers" pattern="[6-9][0-9]{9}" placeholder="Enter Mobilenumber" required>
                   </div>
-                  <div class="mb-0 mt-0">
-                     <label for="address"><b>Car PickupAddress</b></label><br>
-                     <input type="text" placeholder="Enter PickUp Address.." name="custaddress" pattern="^[#.0-9a-zA-Z\s,-]+$" required><br><br>
+                  <div class="mb-0 mt-1">
+                     <label for="address" class="form-label"><b>Car PickupAddress</b></label><br>
+                     <input type="text" placeholder="Enter PickUp Address.." class="form-control"name="custaddress" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
                   </div>
                      <% int centerId=(Integer.parseInt(request.getParameter("centerId").toString())); %>
-                  <div class="mb-0 mt-0">
-                     <label for="centerid" ><b>Center ID</b></label><br>
-                     <input type="number" placeholder="Enter CenterID" name="centerid" value="<%=centerId %>" readonly="readonly" pattern="^[0-9]{3}$" required><br><br>
+                  <div class="mb-0 mt-1">
+                     <label for="centerid" class="form-label"><b>Center ID</b></label><br>
+                     <input type="number" placeholder="Enter CenterID" name="centerid"  class="form-control"value="<%=centerId %>" readonly="readonly" pattern="^[0-9]{3}$" required>
                   </div>
-                  <div class="mb-0 mt-0">
-                     <p>By accepting you agree to our <a href="#" style="color:red">Terms & Privacy</a>.</p><br>
-                  </div>
+                  
+                   <div class="form-check mb-1">
+                    <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
+                    <label class="form-check-label" for="myCheck">By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</label>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Check this checkbox to continue.</div>
+                   </div>
+                  
                      <div class="clearfix mt-0">
                       <a href="SearchUserOne.jsp" class="btn btn-dark">Back</a>
                          <button type="submit" class="btn btn-dark">Submit</button>

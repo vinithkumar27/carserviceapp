@@ -1,6 +1,9 @@
 package com.carserviceapp.servlet;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.carserviceapp.daoimpl.CarServicesDAOImpl;
 import com.carserviceapp.daoimpl.CenterDetailsDAOImpl;
+import com.carserviceapp.exception.ServiceNotFoundException;
 import com.carserviceapp.model.CarServices;
 import com.carserviceapp.model.CenterDetails;
 
@@ -46,12 +50,32 @@ public class DeleteService extends HttpServlet {
 		int serviceid = Integer.parseInt(request.getParameter("serviceid"));
 		CarServices obj1 = new CarServices(serviceid);
 		CarServicesDAOImpl cent = new CarServicesDAOImpl();
-		boolean flag = cent.delete(obj1);
-		 if(flag)
-		 {
-			  session.setAttribute("deleteservice", true);
-		       response.sendRedirect("AdminPage.jsp");
-		  }
+		ResultSet rs = cent.checkserviceid(obj1);
+		 try {
+			if(rs.next())
+			 {
+				CarServices obj2 = new CarServices(serviceid);
+				CarServicesDAOImpl cent2 = new CarServicesDAOImpl();
+				  boolean flag = cent2.delete(obj2);
+				  session.setAttribute("deleteservice", true);
+			      response.sendRedirect("AdminPage.jsp");
+			 }
+			 else
+			 {
+				 try
+				 {
+					 throw new ServiceNotFoundException();
+				 }
+				 catch(ServiceNotFoundException e)
+				 {
+					String invalidservice =e.getMessage();
+					response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=DeleteService.jsp");
+				 }			 
+			 }
+		} catch (SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

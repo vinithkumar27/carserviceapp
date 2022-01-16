@@ -16,7 +16,7 @@
 body
 {
     height: 100vh;
-    background-image: url('assets/carindex.jpg');
+   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
     background-position: center;
     background-size:cover;
      color:white;
@@ -50,7 +50,6 @@ body
 }
 .navnames {
     width: 100%;
-    background-color: #555;
     overflow: auto;
     height: 70px;
   }

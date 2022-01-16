@@ -17,9 +17,11 @@ pageEncoding="ISO-8859-1"  import="com.carserviceapp.connection.*" import ="java
 body
 {
     height: 100vh;
-    background: url(https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/pdp/s60-fuel/s60-hero-21x9.jpg?iar=0&w=1366);
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
     background-position: center;
     background-size:cover;
+      background-repeat:no-repeat;
+    background-attachment: fixed;
      color:white;
     font-size:large;
 }
@@ -51,7 +53,6 @@ body
 }
 .navnames {
     width: 100%;
-    background-color: #555;
     overflow: auto;
     height: 70px;
   }
@@ -170,12 +171,12 @@ td a
         <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>
-    <div class="navnav">
+  <!--   <div class="navnav">
         <a href="MyOrders.jsp">My Orders</a>
        <a href="UserAccount.jsp">My Account</a>
        <a href="UserUpdatePassword.jsp">Change Password</a>
        <a href="UserDeleteAccount.jsp">Delete My Account</a>
-    </div>
+    </div> -->
 <%!ResultSet rs; %>
 <%
 CenterDetailsDAOImpl center1 = new CenterDetailsDAOImpl();

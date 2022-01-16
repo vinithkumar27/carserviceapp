@@ -17,6 +17,7 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   {
 		   String insertQuery="insert into userdetails(u_name,mobileno,u_password,u_email,u_address) values(?,?,?,?,?)";
 		   Connection con = null;
+		   int i = 0;
 		   try {
 			con = ConnectionUtil.getDBconnection();
 		    PreparedStatement stmt = null;
@@ -26,7 +27,6 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			stmt.setString(3,user.getPassword());
 			stmt.setString(4,user.getEmail());
 			stmt.setString(5,user.getAddress());
-		   int i = 0;
 			i = stmt.executeUpdate();
 			stmt.close();
 			con.close();
@@ -34,7 +34,11 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+   if(i>0)
+   {
 		return true;
+   }
+       return false;
 	   }
 	   
 	   public String fetch(CarCustomer userpasscheck) 
@@ -109,13 +113,13 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   {
 		  String updateQuery="update userdetails set u_password=? where user_id=?";
 		  Connection con = null;
+		  int k = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
      	  PreparedStatement stmt = null;
 			stmt = con.prepareStatement(updateQuery);
 			stmt.setString(1,user.getPassword());
-			stmt.setInt(2,user.getUser_id());
-		  int k = 0;
+			stmt.setInt(2,user.getUser_id());	
 			k = stmt.executeUpdate();
 			stmt.close();
 			con.close();
@@ -123,7 +127,11 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(k>0)
+		{	
 		return true;
+		}
+		return false;
 	   }
 	   
 	   //forgot password
@@ -131,13 +139,13 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   {
 		  String updateQuery="update userdetails set u_password=? where mobileno=?";
 		  Connection con = null;
+		  int k = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
      	  PreparedStatement stmt = null;
 			stmt = con.prepareStatement(updateQuery);
 			stmt.setString(1,user.getPassword());
-			stmt.setLong(2,user.getMobileno());
-		  int k = 0;
+			stmt.setLong(2,user.getMobileno()); 
 			k = stmt.executeUpdate();
 			stmt.close();
 			con.close();
@@ -145,7 +153,11 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(k>0)
+		{
 		return true;
+		}
+		return false;
 	   }
 	   
 	   
@@ -154,12 +166,12 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 	   {
 		   String deleteQuery="update userdetails set usertype='invalid' where mobileno=?";
 		   Connection con = null;
+		   int l = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
 		   PreparedStatement stmt = null;
 			stmt = con.prepareStatement(deleteQuery);
 			stmt.setLong(1,user.getMobileno());
-		   int l = 0;
 			l = stmt.executeUpdate();
 			stmt.close();
 			con.close();
@@ -167,7 +179,11 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(l>0)
+		{
 		return true;
+		}
+		return false;
 	   }
 	   //user account reactivate
 	   public int reactivate(CarCustomer user)

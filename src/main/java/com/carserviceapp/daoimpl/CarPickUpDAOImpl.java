@@ -38,13 +38,14 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 	   }
 	   public boolean update(CarPickUp pickup)
 	   {
+		   int k=0;
 	 try {
 		  String updateQuery="update pickup set pick_address=? where user_id=?";
 		  Connection con =ConnectionUtil.getDBconnection();
 		  PreparedStatement stmt = con.prepareStatement(updateQuery);
 		  stmt.setString(1,pickup.getPick_address());
 		  stmt.setInt(2,pickup.getUser_id());
-		  int k =stmt.executeUpdate();
+		  k =stmt.executeUpdate();
 //		  System.out.println(k+" row is updated");
 		  stmt.close();
     	  con.close();
@@ -53,16 +54,21 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			   }
+	 if(k>0)
+	 {
 		return true;
+	 }
+	    return false;
 	   }
 	   public boolean delete(CarPickUp pickup)
 	   {
+		   int l=0;
 		   try {
 		   String deleteQuery="delete from pickup where pickup_id=?";
 		   Connection con =ConnectionUtil.getDBconnection();
 		   PreparedStatement stmt =con.prepareStatement(deleteQuery);
 		   stmt.setInt(1,pickup.getPickup_id());
-		   int l = stmt.executeUpdate();
+		   l = stmt.executeUpdate();
 		   //System.out.println(l+" row is deleted");
 		   stmt.close();
 		   con.close();
@@ -70,11 +76,15 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    if(l>0)
+      {
 		return true;
+      }
+         return false;
 	   }
 	   public ResultSet pickupview() 
 		{	
-			String showQuery="select * from pickup";
+			String showQuery="select * from pickup order by pickup_id desc";
 			ResultSet rs=null;
 			Connection con;
 			try {

@@ -15,6 +15,7 @@ public class CarServicesDAOImpl implements CarServicesDAO
 	   {
 		   String insertQuery="insert into services(service_name,service_cost,service_desc) values(?,?,?)";
 		   Connection con = null;
+		   int i = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
 		   PreparedStatement stmt = null;
@@ -22,7 +23,6 @@ public class CarServicesDAOImpl implements CarServicesDAO
 			stmt.setString(1,service.getService_name());
 			stmt.setInt(2,service.getService_cost());
 			stmt.setString(3,service.getService_desc());
-		   int i = 0;
 			i = stmt.executeUpdate();
 			stmt.close();
 			con.close();
@@ -30,19 +30,23 @@ public class CarServicesDAOImpl implements CarServicesDAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(i>0)
+		{
 		return true;
+		}
+		return false;
 	   }
 	   public boolean update(CarServices service) 
 	   {
 		  String updateQuery="update services set service_cost=? where service_id=?";
 		  Connection con = null;
+		  int k = 0;
 		try {
 			con = ConnectionUtil.getDBconnection();
 		  PreparedStatement stmt = null;
 			stmt = con.prepareStatement(updateQuery);
 			stmt.setInt(1,service.getService_cost());
-			stmt.setInt(2,service.getService_id());
-		  int k = 0;
+			stmt.setInt(2,service.getService_id());		 
 			k = stmt.executeUpdate();
 			stmt.close();
 			con.close();
@@ -50,29 +54,59 @@ public class CarServicesDAOImpl implements CarServicesDAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(k>0)
+		{
 		return true;
+		}
+		return false;
 	   }
+	   
+	   
 	   public boolean delete(CarServices service)
 	   {
+		   int l = 0;
 		   try {
-		   String deleteQuery="delete from services where service_id=?";
+		   String deleteQuery="update services set status='inactive' where service_id=?";
 		   Connection con =ConnectionUtil.getDBconnection();
 		   PreparedStatement stmt =con.prepareStatement(deleteQuery);
 		   stmt.setInt(1,service.getService_id());
-		   int l = stmt.executeUpdate();
-		   //System.out.println(l+" row is deleted");
+		   l = stmt.executeUpdate();
 		   stmt.close();
 		   con.close();
-	   } catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+	   } catch (SQLException | ClassNotFoundException e)
+		   {
 			e.printStackTrace();
-		}
-		return true;
+		   }
+	if(l > 0) 
+	{
+	     return true;
+	}
+		return false;
 	   }
+	   
+	   
+	   public ResultSet checkserviceid(CarServices services)
+	   {
+		 String query="select * from services where service_id in ?";  
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = ConnectionUtil.getDBconnection();
+			    pstmt = con.prepareStatement(query);
+				pstmt.setInt(1,services.getService_id());
+				 rs = pstmt.executeQuery();
+			} catch (SQLException | ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return rs;
+	   }
+	   
 	   public ResultSet view() 
 		{
 			ResultSet rs=null;
-			String showQuery="select service_name,service_cost,service_desc,service_id from services";
+			String showQuery="select service_name,service_cost,service_desc,service_id from services where status='active'";
 			Connection con;
 			try {
 				con = ConnectionUtil.getDBconnection();

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.carserviceapp.daoimpl.*;
+import com.carserviceapp.exception.ServiceNotFoundException;
 import com.carserviceapp.model.*;
 
 /**
@@ -50,6 +51,16 @@ public class UpdateService extends HttpServlet {
 		 {
 			  session.setAttribute("updateprice",true);
 		       response.sendRedirect("AdminPage.jsp");
+		 }else {
+			 try
+			 {
+				 throw new ServiceNotFoundException();
+			 }
+			 catch(ServiceNotFoundException e)
+			 {
+				String invalidservice =e.getMessage();
+				response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=UpdateService.jsp");
+			 }
 		 }
 	}
 	

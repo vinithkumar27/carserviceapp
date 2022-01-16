@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Page Warn</title>
-    <link rel="stylesheet" href="carser.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 *{
  margin: 0;
@@ -16,7 +17,7 @@
 body
 {
     height: 100vh;
-   background: url(https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/pdp/s60-fuel/s60-hero-21x9.jpg?iar=0&w=1366);
+   background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
     background-position: center;
     background-size:cover;
      color:white;
@@ -33,7 +34,7 @@ body
     color:#fff;
     position: relative;
     left: 10px;
-    top: 1px;
+    top: -8px;
     font-size: 40px;
     text-decoration: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -44,13 +45,12 @@ body
     position: relative;
     text-decoration: none;
     left: 10px;
-    top: -2px;
+    top: -18px;
     font-size: 18px;
     font-family:Georgia, 'Times New Roman', Times, serif;   
 }
 .navnames {
     width: 100%;
-    background-color: #555;
     overflow: auto;
     height: 70px;
   }
@@ -71,30 +71,20 @@ body
   h1
   {
      position:absolute;
-     left:300px;  
-     top:200px;
-     
+     left:320px;  
+     top:180px;   
   }
-  .selectbtn
-{
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 15px;
-  margin-left:60px;
-  position:absolute;
-  left:570px;  
-  top:250px;
-}
-.selectbtn:hover
-{
- background-color:white;
- color:black;
-}
+  .btn
+  {
+    position:relative;
+    top:170px;
+    left:600px;
+  }
+  .btn:hover
+  {
+     background-color:white;
+     color:black;
+  }
 </style>
 </head>
 <body>
@@ -104,21 +94,21 @@ body
 		response.sendRedirect("Index.jsp");
 	}
 	%>
-    <div class="container">
+    <div class="topnavbar">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
         <a href="Logout.jsp">Logout</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="UserPage.jsp" >Home</a>          
        </div>
        <%String message=request.getParameter("message");
        String url=request.getParameter("url");
        %>
        <h1 class="finish"><%=message %></h1>
-    <a href="<%=url%>"><button class="selectbtn">Log-In</button></a>
+    <a href="<%=url%>"><button class="btn btn-dark">Retry</button></a>
 </body>
 </html>

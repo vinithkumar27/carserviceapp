@@ -1,12 +1,20 @@
 package com.carserviceapp.servlet;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.carserviceapp.daoimpl.CarPickUpDAOImpl;
+import com.carserviceapp.exception.CenterNotFoundException;
+import com.carserviceapp.exception.InvalidUserException;
+import com.carserviceapp.model.CarPickUp;
 
 /**
  * Servlet implementation class CenterReportsServlet
@@ -40,11 +48,35 @@ public class CenterReportsServlet extends HttpServlet {
 		   HttpSession session =request.getSession();
 		   int center_id=Integer.parseInt(request.getParameter("centerid"));
 		   session.setAttribute("centerid",center_id);
-			if (true)
-			{
-				response.sendRedirect("CenterReportsTwo.jsp");
+		   CarPickUp admincenter = new CarPickUp(center_id);
+		   CarPickUpDAOImpl cpdao = new CarPickUpDAOImpl();
+		   ResultSet rs = cpdao.admincenterview(admincenter);
+			try {
+				if (rs.next())
+				{
+					response.sendRedirect("CenterReportsTwo.jsp");
+				}
+				else 
+				{
+				 try{
+						throw new CenterNotFoundException();
+					}
+				 catch(CenterNotFoundException e)
+					{
+					   String invalidcenter = e.getMessage();
+					   response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=CenterReportsOne.jsp");
+					}
+				}
 			} 
-		   
+			catch (SQLException e)
+		    {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			catch (IOException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}	   
 	}
-
-}

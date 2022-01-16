@@ -11,11 +11,16 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         *{box-sizing: border-box;}
+        body
+        {
+        background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
+        }
         form
         {
           border: 3px solid #f1f1f1;
           margin-left:300px;
           margin-right:300px;
+          background-color:white;
         }
         input[type=text], input[type=password],input[type=tel],input[type=email] {
   width: 100%;
@@ -78,20 +83,19 @@ button:hover {
                      <hr>
                    <div class="mb-1 mt-1">
                      <label for="user" class="form-label"><b>Username</b></label>
-                     <input type="text" placeholder="Enter username" class="form-control" pattern="[a-zA-Z\\s]{3,}" title="username should be more than 3 characters" name="user" required>
-                      <div class="valid-feedback">Valid.</div>
-                      <div class="invalid-feedback">Please fill out this field.</div>
+                     <input type="text" placeholder="Enter username" class="form-control" pattern="[a-zA-Z\s]{3,}" oninvalid="this.setCustomValidity('Enter username more than 3 charcters')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')" name="user" required>
                    </div>
                    
                    <div class="mb-1 mt-1">
                      <label for="mob" class="form-label"><b>Mobilenumber</b></label>
-                     <input type="tel" id="mob" name="mob" class="form-control" pattern="[6-9][0-9]{9}" title="mobile number should be 10 numbers" placeholder="Enter Mobilenumber" required>
+                     <input type="tel" id="mob" name="mob" class="form-control" oninvalid="this.setCustomValidity('Enter MobileNumber should be 10 digits..')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')"  pattern="[0-9]{10}" title="mobile number should be 10 numbers" placeholder="Enter Mobilenumber" required>
                    </div>
                    
                    <div class="mb-1 mt-1">
                      <label for="password" class="form-label"><b>Password</b></label>
-                     <input type="password" id="password" class="form-control" name="password" pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter password" required>
+                     <input type="password" id="password" class="form-control" name="password" pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="this.setCustomValidity('Enter password should be more dhan 8 digits and 1 UpperCase,1 SpecialCase,1 number')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')" placeholder="Enter password" required>
                       <div class="valid-feedback">Valid.</div>
+                      <div class="invalid-feedback">Please fill out this field.</div>
                    </div>
                    
                    <div class="mb-1 mt-1">

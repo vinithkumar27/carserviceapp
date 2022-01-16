@@ -31,7 +31,7 @@ c_address varchar2(70) not null
 );
 insert into service_center(user_id,center_name,c_location,c_contact,c_email,c_address) values(100,'vinayaka cars','salem west',9088974502,'vinayakacars@gmail.com','90,rampillai street,salem west');
 select * from service_center;
-
+alter table service_center add status varchar2(50) default 'active';
 
 --SERVICES
 create table services
@@ -43,7 +43,8 @@ service_desc varchar2(100) not null
 );
 insert into services(service_name,service_cost,service_desc) values('ac filter clean',3000,'clean all filters perfectly');
 select * from services;
-
+alter table services add status varchar2(50) default 'active';
+select service_name,service_cost,service_desc,service_id from services where status='active';
 
 --PICKUP
 create table pickup
@@ -58,7 +59,7 @@ pick_address varchar2(80) not null,
 center_id int,
 foreign key (center_id) references service_center(center_id)
 );
-select * from pickup;
+select * from pickup order by pickup_id desc;
 
 --BILL
 create table bill

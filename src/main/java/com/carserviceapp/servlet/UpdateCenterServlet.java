@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.carserviceapp.daoimpl.CarServicesDAOImpl;
 import com.carserviceapp.daoimpl.CenterDetailsDAOImpl;
+import com.carserviceapp.exception.CenterNotFoundException;
 import com.carserviceapp.model.CarServices;
 import com.carserviceapp.model.CenterDetails;
 
@@ -52,6 +53,17 @@ public class UpdateCenterServlet extends HttpServlet {
 			 {
 				  session.setAttribute("updatecenter", true);
 			       response.sendRedirect("AdminPage.jsp");
+			 }
+			 else {
+				 try
+				 {
+					 throw new CenterNotFoundException();
+				 }
+				 catch(CenterNotFoundException e)
+				 {
+					String invalidservice =e.getMessage();
+					response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=DeleteServiceCenter.jsp");
+				 }	
 			 }
 	}
 

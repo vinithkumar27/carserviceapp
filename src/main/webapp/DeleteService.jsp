@@ -18,7 +18,7 @@
 body
 {
     height: 100vh;
-    background: url(https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/pdp/s60-fuel/s60-hero-21x9.jpg?iar=0&w=1366);
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
     background-position: center;
     background-size:cover;
      color:white;
@@ -60,7 +60,6 @@ body
 }
 .navnames {
     width: 100%;
-    background-color: #555;
     overflow: auto;
     height: 70px;
   }
@@ -80,7 +79,7 @@ body
   }
   .addservice
   {
-   margin-top:50px;
+   margin-top:100px;
     margin-left:100px;
     margin-right:1000px;
   }

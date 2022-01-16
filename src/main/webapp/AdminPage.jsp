@@ -17,7 +17,7 @@
 body
 {
     height: 100vh;
-   background: url(https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/pdp/s60-fuel/s60-hero-21x9.jpg?iar=0&w=1366);
+ background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
     background-position: center;
     background-size:cover;
      color:white;
@@ -50,8 +50,7 @@ body
     font-family:Georgia, 'Times New Roman', Times, serif;   
 }
 .navnames {
-    width: 100%;
-    background-color: #555;
+    width: 100%; 
     overflow: auto;
     height: 70px;
   }
@@ -98,8 +97,8 @@ body
     padding: 5px 15px;
     box-sizing: border-box;
     cursor: pointer;
-    position:relative;
-    top:55px;
+    position:absolute;
+    top:125px;
     left:5px;
     background-color:white;
     opacity:0.9;
@@ -192,8 +191,8 @@ body
     box-sizing: border-box;
     cursor: pointer;
     position:absolute;
-    top:80px;
-    right:5px;
+    top:395px;
+    left:5px;
     background-color:white;
     background-position: center;
     background-size: cover;
@@ -207,8 +206,8 @@ body
     box-sizing: border-box;
     cursor: pointer;
     position:absolute;
-    top:125px;
-    right:5px;
+    top:440px;
+    left:5px;
     opacity:0.9;
     background-color:white;
     background-position: center;
@@ -285,13 +284,43 @@ body
     box-sizing: border-box;
     cursor: pointer;
     position:absolute;
-    top:350px;
-    right:5px;
+    top:485px;
+    left:5px;
     background-color:white;
     background-position: center;
     background-size: cover;
 }
+.reportbtns
+{
+ position:absolute;
+ top:280px;
+ right:5px;
+}
 
+.btn
+{
+    transition: transform 0.5s;
+}
+
+.btn:hover{
+    transform: translateX(20px);
+}
+
+.btns
+{
+    transition: transform 0.5s;
+}
+
+.btns:hover{
+    transform: translateX(-20px);
+}
+
+.cruds
+{
+   position:absolute;
+ top:10px;
+ left:5px;
+}
 
 </style>
 </head>
@@ -305,35 +334,35 @@ body
 	
 	 <%
    if(session.getAttribute("addbill") != null){%>
-	   <h1 style="position:absolute; top:80px; right:50px;">Bill is generated!!</h1>
+	   <h1 style="position:absolute; top:80px; right:500px;">Bill is generated!!</h1>
 	   
    <%session.removeAttribute("addbill"); }
    %>
    
     <%
    if(session.getAttribute("updateprice") != null){%>
-	   <h1 style="position:absolute; top:80px; right:50px;">Service Price is Updated..!!</h1>
+	   <h1 style="position:absolute; top:80px; right:500px;">Service Price is Updated..!!</h1>
 	   
    <%session.removeAttribute("updateprice"); }
    %>
    
     <%
    if(session.getAttribute("deleteservice") != null){%>
-	   <h1 style="position:absolute; top:80px; right:50px;">Service is Deleted...!!</h1>
+	   <h1 style="position:absolute; top:80px; right:500px;">Service is Deleted...!!</h1>
 	   
    <%session.removeAttribute("deleteservice"); }
    %>
    
      <%
    if(session.getAttribute("deletecenter") != null){%>
-	   <h1 style="position:absolute; top:80px; right:50px;">ServiceCenter is Deleted...!!</h1>
+	   <h1 style="position:absolute; top:80px; right:500px;">ServiceCenter is Deleted...!!</h1>
 	   
    <%session.removeAttribute("deletecenter"); }
    %>
    
        <%
    if(session.getAttribute("updatecenter") != null){%>
-	   <h1 style="position:absolute; top:80px; right:70px;">ServiceCenter Contact is Updated...!!</h1>
+	   <h1 style="position:absolute; top:80px; right:550px;">ServiceCenter Contact is Updated...!!</h1>
 	   
    <%session.removeAttribute("updatecenter"); }
    %>
@@ -349,20 +378,25 @@ body
         <a href="AdminPage.jsp" >Home</a>          
        </div>
     <form action="adminaccess" method="post">  
-       <h2 class="button1"><a href="AddBill.jsp">Add Bill</a></h2>
-      <h2 class="button2"> <a href="AddServiceCenter.jsp">Add Service Center</a></h2>
-       <h2 class="button3"><a href="ServiceCenterShow.jsp">View Service Center</a></h2>
-       <h2 class="button4"><a href="UpdateServiceCenter.jsp">Update Service Center</a></h2>
-       <h2 class="button5"><a href="DeleteServiceCenter.jsp">Delete Service Center</a></h2>
-       <h2 class="button6"><a href="AddServices.jsp">Add Services</a></h2>
-       <h2 class="button7"><a href="ShowServices.jsp">View Services</a></h2>
-       <h2 class="button8"><a href="UpdateService.jsp">Update Services</a></h2>
-       <h2 class="button9"><a href="DeleteService.jsp">Delete Services</a></h2>
-       <h2 class="button10"><a href="CenterReportsOne.jsp">Center Reports</a></h2>
-       <h2 class="button11"><a href="CustomerReportsOne.jsp">Customer Reports</a></h2>
-       <h2 class="button12"><a href="PickUpReports.jsp">Pickup Report</a></h2>
-       <h2 class="button13"><a href="BillReportsOne.jsp">Bill Report</a></h2>
-       <h2 class="button14"><a href="UserUpdatePassword.jsp">Change Password</a></h2>
+    <div class="cruds">
+       <h2 class="btn button1"><a href="AddBill.jsp">Add Bill</a></h2>
+       <h2 class="btn button2"> <a href="AddServiceCenter.jsp">Add Service Center</a></h2>
+       <h2 class="btn button3"><a href="ServiceCenterShow.jsp">View Service Center</a></h2>
+       <h2 class="btn button4"><a href="UpdateServiceCenter.jsp">Update Service Center</a></h2>
+       <h2 class="btn button5"><a href="DeleteServiceCenter.jsp">Delete Service Center</a></h2>
+       <h2 class="btn button6"><a href="AddServices.jsp">Add Services</a></h2>
+       <h2 class="btn button7"><a href="ShowServices.jsp">View Services</a></h2>
+       <h2 class="btn button8"><a href="UpdateService.jsp">Update Services</a></h2>
+       <h2 class="btn button9"><a href="DeleteService.jsp">Delete Services</a></h2>
+       <h2 class="btn button14"><a href="UserUpdatePassword.jsp">Change Password</a></h2>
+     </div>  
+     <div class="reportbtns">  
+       <h2 class="btns button10"><a href="CenterReportsOne.jsp">Center Reports</a></h2>
+       <h2 class="btns button11"><a href="CustomerReportsOne.jsp">Customer Reports</a></h2>
+       <h2 class="btns button12"><a href="PickUpReports.jsp">Pickup Report</a></h2>
+       <h2 class="btns button13"><a href="BillReportsOne.jsp">Bill Report</a></h2>
+       </div>
+       
     </form> 
     </div>
 </body>

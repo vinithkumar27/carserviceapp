@@ -10,11 +10,15 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-   
+      body
+      {
+      background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
+      }
         form{
             border: 3px solid #f1f1f1;
             margin-left:400px;
             margin-right:400px;
+            background-color:white;
         }
         input[type=text],input[type=password]
         {
@@ -77,10 +81,12 @@
   .cancelbtn {
      width: 100%;
   }
- #forgot
+ #forgotpass
  {
-    color:red;
+    margin-left:200px;
  }
+
+ 
     </style>
 </head>
 <body>
@@ -106,11 +112,12 @@
 
             <div class="container">
                 <label for="uname" class="form-label"><b>Username</b></label>
-                <input type="text" placeholder="Enter username" class="form-control" name="uname" pattern="[a-zA-Z\\s]{3,}" required autofocus>
+                <input type="text" placeholder="Enter username" class="form-control" name="uname" oninvalid="this.setCustomValidity('Enter username more than 3 charcters')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')"  pattern="[a-zA-Z\\s]{3,}" required autofocus>
 
                  <label for="psw" class="form-label"><b>Password</b></label>
-                 <input type="password" class="form-control" placeholder="Enter password" name="psw" pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-                 <a href="ForgotPassword.jsp"><p>Forgot Password</p></a>
+                 <input type="password" class="form-control" placeholder="Enter password" name="psw" id="userpass" oninvalid="this.setCustomValidity('Enter password correctly')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')"   pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                 <input type="checkbox" class="input" onclick="showpassword()">Show Password
+                 <a href="ForgotPassword.jsp" id="forgotpass">Forgot Password</a>
                  <button type="submit">Login</button>
             </div>
 
@@ -121,5 +128,15 @@
             </div>
         </fieldset>
       </form>  
+      <script>
+      function showpassword() {
+    	  var x = document.getElementById("userpass");
+    	  if (x.type === "password") {
+    	    x.type = "text";
+    	  } else {
+    	    x.type = "password";
+    	  }
+    	}
+      </script>
 </body>
 </html>

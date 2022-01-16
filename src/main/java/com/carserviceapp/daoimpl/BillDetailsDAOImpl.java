@@ -50,7 +50,11 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+     if(k>0)
+     {
 		return true;
+     }
+        return false;
 	   }
 //	   public boolean delete(billDetails c3)
 //	   {
@@ -215,6 +219,10 @@ public class BillDetailsDAOImpl implements BillDetailsDAO
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	if(k>0)
+	{
 		return true;
+	}
+	   return false;
 	   }        
 }

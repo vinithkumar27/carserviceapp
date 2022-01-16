@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service Centers</title>
-    <link rel="stylesheet" href="carser.css">
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 *{
  margin: 0;
@@ -16,9 +17,11 @@
 body
 {
     height: 100vh;
-    background: url(https://www.volvocars.com/images/v/-/media/project/contentplatform/data/media/pdp/s60-fuel/s60-hero-21x9.jpg?iar=0&w=1366);
+   background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
     background-position: center;
     background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
      color:white;
     font-size:large;
 }
@@ -33,7 +36,7 @@ body
     color:#fff;
     position: relative;
     left: 10px;
-    top: 1px;
+    top: -8px;
     font-size: 40px;
     text-decoration: none;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -44,13 +47,12 @@ body
     position: relative;
     text-decoration: none;
     left: 10px;
-    top: -2px;
+    top: -18px;
     font-size: 18px;
     font-family:Georgia, 'Times New Roman', Times, serif;   
 }
 .navnames {
     width: 100%;
-    background-color: #555;
     overflow: auto;
     height: 70px;
   }
@@ -73,35 +75,32 @@ body
           border:1px solid black;
           border-collapse: collapse;
           border-bottom: 1px solid black;
+          color:white;
       }
       tr:hover {background-color: black;}
       table
       {
         width:80%;
         height:100px;
-        margin-left:100px;
-        margin-right:100px;
+         align:center;
         margin-top:100px;
       }
       h1
       {
         position:absolute;
-        left:100px;
-        top:130px;
+        left:120px;
+        top:120px;
       }
-      .billreportback {
-  background-color:black;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  position:relative;
-  top:38px;
-  left:100px;
-}
+      .btn
+      {
+        position:relative;
+        top:5px;
+      }
+      .btn:hover
+      {
+         background-color:white;
+         color:black;
+      }
   
 </style>
 </head>
@@ -112,15 +111,15 @@ body
 		response.sendRedirect("Index.jsp");
 	}
 	%>
-    <div class="container">
+    <div class="topnavbar">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>
        <a href="#" id="secondhead">A one stop solution for all brand car service</a>  
        </div>
        <div class="navnames">
         <a href="Logout.jsp">Logout</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="AdminPage.jsp" >Home</a>          
        </div>
     </div>
@@ -129,9 +128,10 @@ body
 CenterDetailsDAOImpl center1 = new CenterDetailsDAOImpl();
 rs = center1.showview();
 %>
-
+<div class="container mt-1">
 <h1><b>ServiceCenters</b></h1>
-<table >
+<table class="table table-bordered table-sm">
+<thead class="table-dark">
   <tr>
        <th>Center ID</th>
        <th>Center Name</th>
@@ -140,6 +140,7 @@ rs = center1.showview();
        <th>Center Email</th>
        <th>Center Address</th>
   </tr>
+  </thead>
   <%while(rs.next()) {%>
   <tr>
        <td><%=rs.getInt(1)%></td>
@@ -151,7 +152,8 @@ rs = center1.showview();
   </tr>
   <%} %>
 </table>
-<a href="AdminPage.jsp"><button type="submit" class="billreportback">Back</button></a>
+<a href="AdminPage.jsp"><button type="submit" class="btn btn-dark">Back</button></a>
+</div>
 </body>
 </html>
 
