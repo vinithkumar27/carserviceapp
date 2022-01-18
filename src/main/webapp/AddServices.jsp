@@ -109,25 +109,44 @@ form
        </div>
         <div class="addservice">
        <h1>Services Entry Form</h1>
-          <form action="servicedetail" method="post">
+          <form action="servicedetail" method="post" class="was-validated">
             <fieldset>
                <legend><b>Add Services</b></legend>
                <hr>
                     <div class="mt-1 mb-1">
                      <label for="services" class="form-label"><b>Service Name</b></label><br>
-                     <input type="text" class="form-control" placeholder="Enter Service Name" name="servname" pattern="[a-zA-Z\s]{3,}" required>
+                     <input type="text" class="form-control" placeholder="Enter Service Name" name="servname" id="servname" pattern="[a-zA-Z\s-]{3,}" required>
                      </div>
                      <div class="mt-1 mb-1">
                      <label for="servicecost" class="form-label"><b>Service Cost</b></label><br>
-                     <input type="number" class="form-control" placeholder="Enter Service Cost" name="servcost" pattern="^[0-9]{3,}$"required>
+                     <input type="number" class="form-control" placeholder="Enter Service Cost" name="servcost" id="servcost" pattern="^[0-9]{3,}$"required>
                      </div>
                      <div class="mt-1 mb-1">
                       <label for="servicedesc" class="form-label"><b>Service Description</b></label><br>
-                     <input type="text" class="form-control" placeholder="Enter Service description" name="servdesc" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
+                     <input type="text" class="form-control" placeholder="Enter Service description" name="servdesc" id="servdesc" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
                      </div>
                      <div class="mt-2">
-                     <button type="submit" class="btn btn-dark">Add Services</button>
+                     <button type="submit" class="btn btn-dark" onclick="addservice()">Add Services</button>
                      <a href="AdminPage.jsp" class="btn btn-dark">Back</a>
+                     
+                     <script type="text/javascript">
+                      function addservice()
+                       {
+                    	   const sername = document.getElementById("servname");
+                    	   const sercost = document.getElementById("servcost");
+                    	   const serdesc = document.getElementById("servdesc");
+                    	 
+                    	  if((sername.value=="")||(sercost.value=="")||(serdesc.value==""))
+                    		  {
+                    		    sername.focus();
+                    		    return;
+                    		  }
+                     else
+                        {
+            	          alert("Service is Added Sucessfully...");
+                    	}
+                       } 
+                      </script>
                      </div>
                      </div>
                </fieldset>

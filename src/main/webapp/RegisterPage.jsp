@@ -88,30 +88,28 @@ button:hover {
                    
                    <div class="mb-1 mt-1">
                      <label for="mob" class="form-label"><b>Mobilenumber</b></label>
-                     <input type="tel" id="mob" name="mob" class="form-control" oninvalid="this.setCustomValidity('Enter MobileNumber should be 10 digits..')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')"  pattern="[0-9]{10}" title="mobile number should be 10 numbers" placeholder="Enter Mobilenumber" required>
+                     <input type="tel" id="mob" name="mob" class="form-control" oninvalid="this.setCustomValidity('mobile number should be 10 numbers and starts with 6-9 only')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')"  pattern="[6-9]{1}[0-9]{9}" placeholder="Enter Mobilenumber" required>
                    </div>
                    
                    <div class="mb-1 mt-1">
                      <label for="password" class="form-label"><b>Password</b></label>
                      <input type="password" id="password" class="form-control" name="password" pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" oninvalid="this.setCustomValidity('Enter password should be more dhan 8 digits and 1 UpperCase,1 SpecialCase,1 number')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')" placeholder="Enter password" required>
-                      <div class="valid-feedback">Valid.</div>
-                      <div class="invalid-feedback">Please fill out this field.</div>
                    </div>
                    
                    <div class="mb-1 mt-1">
                      <label for="email" class="form=label"><b>Email</b></label>
-                     <input type="email" id="email" class="form-control" name="email" placeholder="Enter email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required>
+                     <input type="email" id="email" class="form-control" name="email" placeholder="Enter email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" oninvalid="this.setCustomValidity('Gmail id should be in correct formate of abc@gmail.com')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')" required>
                       <div class="valid-feedback">Valid.</div>
                    </div>
                    
                    <div class="mb-1 mt-1">
                      <label for="address" class="form-label"><b>Address</b></label>
-                     <input type="text" placeholder="Enter Address" class="form-control" name="address" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
-                   </div> 
+                     <input type="text" placeholder="Enter Address" class="form-control" name="address" pattern="^[#.0-9\a-zA-Z\s,-]+$" oninvalid="this.setCustomValidity('entered address should be in correct formate')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')" required>
+                   </div> 			
                     
                    <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" id="myCheck" name="remember" required>
-                    <label class="form-check-label" for="myCheck">By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</label>
+                    <label class="form-check-label" for="myCheck">By creating an account you agree to our <a href="TermsAndPrivacy.jsp" style="color:dodgerblue">Terms & Privacy</a>.</label>
                     <div class="valid-feedback">Valid.</div>
                     <div class="invalid-feedback">Check this checkbox to continue.</div>
                    </div>

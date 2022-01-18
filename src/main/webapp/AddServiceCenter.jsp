@@ -108,26 +108,26 @@ form
        </div>
         <div class="addservice">
        <h1>ServiceCenter Entry Form</h1>
-          <form action="centerdetail" method="post">
+          <form action="centerdetail" method="post" class="was-validated">
                <legend>Add Service Center</legend>
                       <hr>
                       <div class="mt-1 mb-1">
                      <label for="centername" class="form-label"><b>Service Center Name</b></label>
-                     <input type="text" class="form-control" placeholder="Enter CenterName" name="centername" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
+                     <input type="text" class="form-control" placeholder="Enter CenterName" name="centername" id="centername" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
                      </div>
                      <div class="mt-1 mb-1">
                       <label for="centerlocation" class="form-label"><b>Service Center Location</b></label>
-                     <input type="text" class="form-control" placeholder="Enter CenterName" name="centerlocation" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
+                     <input type="text" class="form-control" placeholder="Enter Center Location" name="centerlocation" id="centerlocation" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
                      </div>
                      <div class="mt-1 mb-1">
                      <label for="centermob" class="form-label"><b>Service Center Contact</b></label>
-                     <input type="tel" id="mob" class="form-control" name="centercontact" pattern="[6-9][0-9]{9}" placeholder="Enter Center Mobilenumber" required>
+                     <input type="tel" class="form-control" name="centercontact" pattern="[6-9][0-9]{9}" id="centercontact" placeholder="Enter Center Mobilenumber" required>
                      </div>
                      <label for="email" class="form-label"><b>Service Center Email</b></label>
-                     <input type="email" id="centeremail" class="form-control" name="centeremail" placeholder="Enter Center Email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required>
+                     <input type="email" class="form-control" name="centeremail" id="centeremail" placeholder="Enter Center Email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" required>
                      <div class="mt-1 mb-1">
                      <label for="address" class="form-label"><b>Service Center Address</b></label>
-                     <input type="text" class="form-control" placeholder="Enter Center Address" name="centeraddress" pattern="^[#.0-9a-zA-Z\s,-]+$" required>
+                     <input type="text" class="form-control" placeholder="Enter Center Address" id="centeraddress" name="centeraddress" pattern="^[#.0-9/a-zA-Z\s,-]+$" required>
                      </div>
                      <div class="mt-3 mb-0">
                      <button type="submit" class="btn btn-dark" onclick="addcenter()">Add Center</button>
@@ -135,12 +135,27 @@ form
                      </div>
                      </div>
             </form>
-    </div>
-     <script>
+    </div>          
+            <script type="text/javascript">
             function addcenter()
-                {
-            	   alert("Service Center is Added Successfully..");
-                }
+             {
+          	   const cenname = document.getElementById("centername");
+          	   const cenloc = document.getElementById("centerlocation");
+          	   const cencont = document.getElementById("centercontact");
+          	 const cenemail = document.getElementById("centeremail");
+          	const cenaddr = document.getElementById("centeraddress");
+          	 
+          	  if((cenname.value=="")||(cenloc.value=="")||(cencont.value=="")||(cenemail.value=="")||(cenaddr.value==""))
+          		  {
+          		    
+          		    sername.focus();
+          		    return;
+          		  }
+           else
+              {
+        	   alert("Service Center is Added Successfully..");
+          	  }
+             } 
       </script>
 </body>
 </html>

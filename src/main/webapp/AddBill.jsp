@@ -128,7 +128,7 @@ body
        <h1>Generate Bill</h1>
           <form action="addbill" method="post">
                      <label for="userid" class="form-label"><b>UserId</b></label><br>
-                     <input type="text" class="form-control" placeholder="Enter UserId" name="userid" pattern="^[0-9]{3}$" required><br>  
+                     <input type="text" class="form-control" placeholder="Enter UserId" name="userid" id="userid" pattern="^[0-9]{3,}$" required><br>  
                      <label for="servdate" class="form-label"><b>Service Date</b></label><br>
                      <input type="date" class="form-control" placeholder="Enter Service Date" id="datefield" name="servdate" required><br><br>
                      <button type="submit" class="btn btn-dark" onclick="generatebill()">Generate Bill</button>
@@ -138,8 +138,16 @@ body
             <script>
             function generatebill()
                 {
-            	   alert("Bill is Generated..");
-                }
+         	   const billuserid = document.getElementById("userid");
+         	   const billdatefield = document.getElementById("datefield");
+       	 
+         if((billuserid.value=="")||(billdatefield.value==""))
+            {    
+               billuserid.focus();
+         	   return;
+            }
+                } 
+              
              
             var today = new Date();
             var dd = today.getDate()-4;

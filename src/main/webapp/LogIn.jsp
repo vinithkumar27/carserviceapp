@@ -81,10 +81,6 @@
   .cancelbtn {
      width: 100%;
   }
- #forgotpass
- {
-    margin-left:200px;
- }
 
  
     </style>
@@ -116,8 +112,8 @@
 
                  <label for="psw" class="form-label"><b>Password</b></label>
                  <input type="password" class="form-control" placeholder="Enter password" name="psw" id="userpass" oninvalid="this.setCustomValidity('Enter password correctly')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')"   pattern="(?=.*[0-9])(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-                 <input type="checkbox" class="input" onclick="showpassword()">Show Password
-                 <a href="ForgotPassword.jsp" id="forgotpass">Forgot Password</a>
+                 <input type="checkbox" class="input" onclick="showpassword()">Show Password &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                 <a href="ForgotPassword.jsp" >Forgot Password</a>
                  <button type="submit">Login</button>
             </div>
 

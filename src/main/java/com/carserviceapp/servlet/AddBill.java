@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.carserviceapp.daoimpl.BillDetailsDAOImpl;
+import com.carserviceapp.exception.CenterNotFoundException;
+import com.carserviceapp.exception.UserIdNotFoundException;
 import com.carserviceapp.model.BillDetails;
 
 /**
@@ -61,6 +63,17 @@ public class AddBill extends HttpServlet {
 			  session.setAttribute("addbill",true);
 		       response.sendRedirect("AdminPage.jsp");
 		  }
+        else {
+			 try
+			 {
+				 throw new UserIdNotFoundException();
+			 }
+			 catch(UserIdNotFoundException e)
+			 {
+				String invaliduserid =e.getMessage();
+				response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=AddBill.jsp");
+			 }	
+		 }
 	}
 
 }

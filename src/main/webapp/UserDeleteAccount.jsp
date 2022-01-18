@@ -122,7 +122,7 @@ body
                      <label for="mobno"><b>MobileNumber</b></label><br>
                      <input type="tel" placeholder="Enter Registered MobileNumber" class="form-control" name="mobileno" pattern="[6-9][0-9]{9}" required><br>  <br>
                      <button type="submit" class="btn btn-dark">Unsuscribe</button>
-                     <!-- <a href="UserPage.jsp" class="selectbtn">Back</a>   -->
+                      <a href="UserUpdatePassword.jsp" class="btn btn-dark">Back</a>
                      </div>
                </fieldset>
             </form>

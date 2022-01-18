@@ -68,7 +68,7 @@ body
   .navnames a:hover {
     background-color: #000;
   }
-  h2 a
+  a h2
   {
   text-decoration: none;
   color:#551c21;
@@ -379,22 +379,22 @@ body
        </div>
     <form action="adminaccess" method="post">  
     <div class="cruds">
-       <h2 class="btn button1"><a href="AddBill.jsp">Add Bill</a></h2>
-       <h2 class="btn button2"> <a href="AddServiceCenter.jsp">Add Service Center</a></h2>
-       <h2 class="btn button3"><a href="ServiceCenterShow.jsp">View Service Center</a></h2>
-       <h2 class="btn button4"><a href="UpdateServiceCenter.jsp">Update Service Center</a></h2>
-       <h2 class="btn button5"><a href="DeleteServiceCenter.jsp">Delete Service Center</a></h2>
-       <h2 class="btn button6"><a href="AddServices.jsp">Add Services</a></h2>
-       <h2 class="btn button7"><a href="ShowServices.jsp">View Services</a></h2>
-       <h2 class="btn button8"><a href="UpdateService.jsp">Update Services</a></h2>
-       <h2 class="btn button9"><a href="DeleteService.jsp">Delete Services</a></h2>
-       <h2 class="btn button14"><a href="UserUpdatePassword.jsp">Change Password</a></h2>
+      <a href="AddBill.jsp"><h2 class="btn button1">Add Bill</h2></a>
+        <a href="AddServiceCenter.jsp"><h2 class="btn button2">Add Service Center</h2></a>
+       <a href="ServiceCenterShow.jsp"><h2 class="btn button3">View Service Center</h2></a>
+       <a href="UpdateServiceCenter.jsp"><h2 class="btn button4">Update Service Center</h2></a>
+       <a href="DeleteServiceCenter.jsp"><h2 class="btn button5">Delete Service Center</h2></a>
+       <a href="AddServices.jsp"><h2 class="btn button6">Add Services</h2></a>
+       <a href="ShowServices.jsp"><h2 class="btn button7">View Services</h2></a>
+       <a href="UpdateService.jsp"><h2 class="btn button8">Update Services</h2></a>
+       <a href="DeleteService.jsp"><h2 class="btn button9">Delete Services</h2></a>
+       <a href="UserUpdatePassword.jsp"><h2 class="btn button14">Change Password</h2></a>
      </div>  
      <div class="reportbtns">  
-       <h2 class="btns button10"><a href="CenterReportsOne.jsp">Center Reports</a></h2>
-       <h2 class="btns button11"><a href="CustomerReportsOne.jsp">Customer Reports</a></h2>
-       <h2 class="btns button12"><a href="PickUpReports.jsp">Pickup Report</a></h2>
-       <h2 class="btns button13"><a href="BillReportsOne.jsp">Bill Report</a></h2>
+      <a href="CenterReportsOne.jsp"><h2 class="btns button10">Center Reports</h2></a>
+       <a href="CustomerReportsOne.jsp"><h2 class="btns button11">Customer Reports</h2></a>
+       <a href="PickUpReports.jsp"><h2 class="btns button12">Pickup Report</h2></a>
+       <a href="BillReportsOne.jsp"><h2 class="btns button13">Bill Report</h2></a>
        </div>
        
     </form> 
