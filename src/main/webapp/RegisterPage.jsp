@@ -83,7 +83,7 @@ button:hover {
                      <hr>
                    <div class="mb-1 mt-1">
                      <label for="user" class="form-label"><b>Username</b></label>
-                     <input type="text" placeholder="Enter username" class="form-control" pattern="[a-zA-Z\s]{3,}" oninvalid="this.setCustomValidity('Enter username more than 3 charcters')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')" name="user" required>
+                     <input type="text"  placeholder="Enter username" class="form-control" pattern="[a-zA-Z\s]{3,}" oninvalid="this.setCustomValidity('Enter username more than 3 charcters')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')" name="user" required>
                    </div>
                    
                    <div class="mb-1 mt-1">
@@ -99,12 +99,11 @@ button:hover {
                    <div class="mb-1 mt-1">
                      <label for="email" class="form=label"><b>Email</b></label>
                      <input type="email" id="email" class="form-control" name="email" placeholder="Enter email" pattern="[a-zA-Z0-9.]+[@][a-zA-Z]+[.][a-z]+{15,}" oninvalid="this.setCustomValidity('Gmail id should be in correct formate of abc@gmail.com')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')" required>
-                      <div class="valid-feedback">Valid.</div>
                    </div>
                    
                    <div class="mb-1 mt-1">
                      <label for="address" class="form-label"><b>Address</b></label>
-                     <input type="text" placeholder="Enter Address" class="form-control" name="address" pattern="^[#.0-9\a-zA-Z\s,-]+$" oninvalid="this.setCustomValidity('entered address should be in correct formate')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')" required>
+                     <input type="text"  placeholder="Enter Address" class="form-control" name="address" pattern="^[#.0-9\a-zA-Z\s,-]+$" oninvalid="this.setCustomValidity('entered address should be in correct formate')" onchange="try{setCustomValidity('')}catch(e){}" oninput="setCustomValidity('')" required>
                    </div> 			
                     
                    <div class="form-check mb-3">

@@ -88,12 +88,6 @@ body
 </style>
 </head>
 <body>
-<%
-	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	if ((session.getAttribute("user") == null)&&(session.getAttribute("admin")==null)&&(session.getAttribute("invalid")==null)) {
-		response.sendRedirect("Index.jsp");
-	}
-	%>
     <div class="topnavbar">
         <div class="heading">
        <a href="#" id="firsthead"> <b>Car Service Center</b></a><br>

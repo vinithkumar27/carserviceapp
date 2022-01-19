@@ -82,6 +82,13 @@ public CarCustomer(long mobileno,String password)
 	this.mobileno = mobileno;
 }
 
+public CarCustomer(long mobileno,String email,String dummy)
+{
+	super();
+	this.mobileno = mobileno;
+	this.email = email;
+}
+
 public CarCustomer(String name, String password) {
 	super();
 	this.name = name;

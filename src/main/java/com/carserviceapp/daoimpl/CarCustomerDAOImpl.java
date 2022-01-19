@@ -87,6 +87,46 @@ public class CarCustomerDAOImpl implements CarCustomerDAO
 			return rs;
 	   }
 	   
+	   //email check
+	   public ResultSet getEmail(CarCustomer email)
+	   {
+		   String query="select * from userdetails where u_email in ?";  
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = ConnectionUtil.getDBconnection();
+			    pstmt = con.prepareStatement(query);
+				pstmt.setString(1, email.getEmail());
+				 rs = pstmt.executeQuery();
+			} catch (SQLException | ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return rs;
+	   }
+	   
+	   //mobile no check
+	   public ResultSet getMobile(CarCustomer email)
+	   {
+		   String query="select * from userdetails where mobileno in ?";  
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = ConnectionUtil.getDBconnection();
+			    pstmt = con.prepareStatement(query);
+				pstmt.setLong(1, email.getMobileno());
+				 rs = pstmt.executeQuery();
+			} catch (SQLException | ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return rs;
+	   }
+	   
+	   
+	   
 	   public int fetchid(CarCustomer myaccount) throws SQLException
 	   {
 		    String query="select user_id from userdetails where u_name in ?";  

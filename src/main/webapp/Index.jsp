@@ -69,6 +69,7 @@ background-image: url('assets/jeep-wrangler-rubicon-5k-pe 1.jpg');
   }
   .col{
     flex-basis: 50%;
+    margin-left:15px;
 }
 h1{
     color: #fff;
@@ -83,8 +84,8 @@ p{
 button{
     width: 150px;
     color: #000;
-    font-size: 12px;
-    padding: 12px 0;
+    font-size: 15px;
+    padding: 12px ;
     background: #fff;
     border: 0;
     border-radius: 20px;
@@ -92,6 +93,16 @@ button{
     margin-top: 30px;
     cursor:pointer;
 }
+
+button
+{
+    transition: transform 0.5s;
+}
+
+button:hover{
+    transform: translate(20px);
+}
+
 #paragh
 {
   font-size:15px;

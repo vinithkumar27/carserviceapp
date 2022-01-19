@@ -1,6 +1,8 @@
 package com.carserviceapp.servlet;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.carserviceapp.daoimpl.CarCustomerDAOImpl;
+import com.carserviceapp.exception.ExistEmailIdException;
+import com.carserviceapp.exception.ExistMobileNoException;
 import com.carserviceapp.model.CarCustomer;
 
 /**
@@ -17,32 +21,10 @@ import com.carserviceapp.model.CarCustomer;
 @WebServlet("/carserviceuser12")
 public class RegisterPageServlet extends HttpServlet 
 {
-	private static final long serialVersionUID = 1L;
-    
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegisterPageServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @throws IOException 
-	 * @throws ServletException 
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
+	
 	 public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	   {
-		 doGet(request,response);
+	   {	 
 		   String username=request.getParameter("user");
 		   Long mobileno = Long.parseLong(request.getParameter("mob"));
 		   String password=request.getParameter("password");
@@ -50,12 +32,47 @@ public class RegisterPageServlet extends HttpServlet
 		   String address=request.getParameter("address");
 		   CarCustomer obj1 = new CarCustomer(username,mobileno,password,email,address);
 		   CarCustomerDAOImpl cust = new CarCustomerDAOImpl();
-		   cust.insert(obj1);
-		   try {
-			response.sendRedirect("LogIn.jsp");
-		} catch (IOException e) {
+		   
+		   String dummy="";
+		   CarCustomer obj2 = new CarCustomer(mobileno,email,dummy);
+		   ResultSet rs=cust.getEmail(obj2);
+		   ResultSet rs1=cust.getMobile(obj2);
+  try { 
+		   if(rs.next())
+		   {
+			   if(email.equals(rs.getString(5)))
+			   {
+				   throw new ExistEmailIdException();
+			   }
+		   }  
+		   if(rs1.next())
+		   {
+			   if(mobileno.equals(rs1.getLong(3)))
+			   {
+				   throw new ExistMobileNoException();
+			   }
+		   }
+		   boolean k=cust.insert(obj1);
+		   if(k==true)
+		   {
+		   response.sendRedirect("LogIn.jsp");
+		   }
+       }
+  catch (ExistMobileNoException e)
+  {
+// TODO Auto-generated catch block
+	  String invalidmobile = e.getMessage();
+	   response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=RegisterPage.jsp");
+   } 
+  catch (ExistEmailIdException e)
+  {
+   String invalidemail = e.getMessage();
+   response.sendRedirect("UserPageWarn.jsp?message="+e.getMessage()+"&url=RegisterPage.jsp");
+  }
+  catch (IOException | SQLException e) 
+           {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		   }
 	   }
 }
