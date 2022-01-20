@@ -87,6 +87,11 @@ public CarPickUp(int user_id, String pick_address) {
 	this.pick_address = pick_address;
 }
 
+public CarPickUp(int user_id,double dummy) {
+	super();
+	this.user_id = user_id;
+}
+
 public CarPickUp(int center_id) {
 	super();
 	this.center_id = center_id;

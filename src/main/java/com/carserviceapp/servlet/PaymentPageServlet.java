@@ -14,8 +14,10 @@ import javax.servlet.http.HttpSession;
 
 import com.carserviceapp.daoimpl.BillDetailsDAOImpl;
 import com.carserviceapp.daoimpl.CarPaymentDAOImpl;
+import com.carserviceapp.daoimpl.CarPickUpDAOImpl;
 import com.carserviceapp.model.BillDetails;
 import com.carserviceapp.model.CarPayment;
+import com.carserviceapp.model.CarPickUp;
 
 
 @WebServlet("/paymentpage")
@@ -57,6 +59,10 @@ public class PaymentPageServlet extends HttpServlet {
 					BillDetailsDAOImpl bdao = new BillDetailsDAOImpl();
 					BillDetails pay = new BillDetails(userid);
 					bdao.updatestatus(pay);
+					CarPickUpDAOImpl cdao = new CarPickUpDAOImpl();
+					double a=15.55;
+					CarPickUp picker = new CarPickUp(userid,a);
+					cdao.updatepickupstatus(picker);
 					response.sendRedirect("UserThanksPage.jsp");
 				} 
 		 } 

@@ -141,6 +141,7 @@ rs = cpdao.pickupview();
        <th>Customer Mobile</th>
        <th>Customer Address</th>
        <th>Center ID</th>  
+       <th>Status</th>
   </tr>
   </thead>
   <%while(rs.next()) {%>
@@ -152,6 +153,7 @@ rs = cpdao.pickupview();
        <td><%=rs.getLong(5)%></td>
        <td><%=rs.getString(6) %></td>
        <td><%=rs.getInt(7)%></td>
+       <td><%=rs.getString(8)%></td>
   </tr>
   <%} %>
 </table>

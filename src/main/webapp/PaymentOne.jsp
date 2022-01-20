@@ -183,7 +183,7 @@ p
                      <label for="amountpaid" class="form-label"><b>Amount Paid</b></label><br>
                      <input type="number" placeholder="Enter Amount" class="form-control" name="amountpaid" value="<%=amount %>" readonly="readonly" required><br>
                     </div>
-                     <p id="terms">By accepting you agree to our <a href="#" style="color:red">Terms & Privacy</a>.</p>
+                     <p id="terms">By accepting you agree to our <a href="TermsAndPrivacy.jsp" style="color:red">Terms & Privacy</a>.</p>
     
                      <div class="clearfix">
                          <button type="submit" class="btn btn-dark">Submit</button>

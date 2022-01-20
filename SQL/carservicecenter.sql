@@ -59,7 +59,10 @@ pick_address varchar2(80) not null,
 center_id int,
 foreign key (center_id) references service_center(center_id)
 );
+alter table pickup add status varchar2(20) default 'requested';
 select * from pickup order by pickup_id desc;
+delete from pickup;
+commit;
 
 --BILL
 create table bill

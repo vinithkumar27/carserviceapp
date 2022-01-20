@@ -114,4 +114,30 @@ public class CarPickUpDAOImpl implements CarPickUpDAO
 			}
 			return rs;
 		}
+	   
+	   public boolean updatepickupstatus(CarPickUp pick)
+	   {
+		  String updateQuery="update pickup set status='serviced' where user_id=?";
+		  Connection con = null;
+		  PreparedStatement stmt = null;
+		  int k=0;
+		try {
+			con = ConnectionUtil.getDBconnection();
+			stmt = con.prepareStatement(updateQuery);
+			stmt.setInt(1,pick.getUser_id());
+			k =stmt.executeUpdate();
+			stmt.close();
+			con.close();
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	if(k>0)
+	{
+		return true;
+	}
+	   return false;
+	   } 
+	   
+	   
 	}
