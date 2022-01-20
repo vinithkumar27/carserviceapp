@@ -26,7 +26,7 @@ Password: Helloworld@123
 
 6.Admin Can View Service Center Reports
 
-7.Admin Can View Custmers Reports
+7.Admin Can View Customers Reports
 
 8.Admin Can View PickUp Reports
 
