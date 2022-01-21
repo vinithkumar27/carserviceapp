@@ -97,8 +97,8 @@ body
        <div class="navnames">
         <a href="RegisterPage.jsp">Register</a>
         <a href="LogIn.jsp">Login</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="UserPage.jsp" >Home</a>          
        </div>
     </div>

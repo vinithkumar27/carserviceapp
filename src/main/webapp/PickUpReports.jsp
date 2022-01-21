@@ -117,8 +117,8 @@ body
        </div>
        <div class="navnames">
        <a href="Logout.jsp">Logout</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
+        <a href="ContactUs.jsp">Contact Us</a>
+        <a href="AboutUs.jsp">About Us</a>
         <a href="AdminPage.jsp" >Home</a>          
        </div>
     </div>

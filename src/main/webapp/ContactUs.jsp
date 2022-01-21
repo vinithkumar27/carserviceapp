@@ -99,23 +99,23 @@ body
   .tel-img
   {
     width:200px;
-    height:200px;
+    height:150px;
     position:absolute;
-    top:50px;
+    top:75px;
     left:20px;
   }
     #contactus3
   {
-     position:absolute;
+    position:absolute;
     top:150px;
     left:250px;
   }
   .email-img
   {
     width:200px;
-    height:200px;
+    height:180px;
     position:absolute;
-    top:130px;
+    top:140px;
     left:-30px;
   }
     #contactus4
@@ -133,9 +133,9 @@ body
   .office-img
   {
     width:200px;
-    height:200px;
+    height:130px;
     position:absolute;
-    top:300px;
+    top:340px;
     left:-30px;
   }
     #contactus6
@@ -180,13 +180,13 @@ body
    <div class="aboutus">
            <h2 id="contactus1">Contact Us</h2>
            <h3 id="contactus2">Helpline Numbers</h3>
-           <img src="https://gomechanic.in/assets/img/call.svg" class="tel-img">
+           <img src='assets/call.png' class="tel-img">
            <p id="contactus3">+91-9384 79 4114,+91-8056 31 1564,+91-8428 89 1847</p>
            <h3 id="contactus4">Email</h3>
-           <img src="https://gomechanic.in/assets/img/email.svg" class="email-img">
+           <img src='assets/email.png' class="email-img">
            <p id="contactus5">Customer Support:info@mechcent.in</p>
            <h3 id="contactus6">Corporate Office Address</h3>
-           <img src="https://gomechanic.in/assets/img/office1.svg" class="office-img">
+           <img src="assets/office1.png" class="office-img">
            <p id="contactus7">Marketone innovations pvt ltd
 3rd Floor, Landmark Tower, Moti VIhar, Ashok Marg,
 South City I, Sector 41, Ambattur, Chennai 122001</p>
