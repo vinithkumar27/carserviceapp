@@ -69,9 +69,9 @@ body
   }
   .finish
   {
-    position:relative;
-    left:450px;
-    top:160px;
+    position:absolute;
+    left:400px;
+    top:220px;
   }
    h2 a
   {

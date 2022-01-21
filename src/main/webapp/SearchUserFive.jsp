@@ -68,9 +68,16 @@ body
   }
   .finish
   {
-    position:relative;
+    position:absolute;
     left:100px;
-    top:150px;
+    top:250px;
+    font-size:40px;
+  }
+   .finish1
+  {
+    position:absolute;
+    left:100px;
+    top:300px;
     font-size:40px;
   }
 </style>
@@ -96,6 +103,6 @@ body
     </div>
     
     <h1 class="finish">Thanks For Using MechCent....</h1>
-    <h2 class="finish">Our Service Engineers Contact Soon...</h2>
+    <h2 class="finish1">Our Service Engineers Contact Soon...</h2>
 </body>
 </html>

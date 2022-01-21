@@ -88,12 +88,12 @@ body
       {
         position:relative;
         left:0px;
-        top:90px;
+        top:50px;
       }
      .btn
      {
        position:relative;
-       top:200px;
+       top:20px;
      }
      .btn:hover
      {
@@ -151,8 +151,9 @@ rs=cent.pendingview(obj1);
   </tr>
 
   <%} %>
-	      <a href="MyOrders.jsp"><button type="submit" class="btn btn-dark">Back</button></a>
+	      
 </table>  
+<a href="MyOrders.jsp"><button type="submit" class="btn btn-dark">Back</button></a>
 </div>  
 </body>
 </html>

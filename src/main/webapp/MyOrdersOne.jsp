@@ -132,18 +132,15 @@ int userid=Integer.parseInt(session.getAttribute("userid").toString());
 BillDetails payment = new BillDetails(userid);
 BillDetailsDAOImpl dao1 = new BillDetailsDAOImpl();
 int bill_num=0;
-	bill_num=dao1.fetchbillnum(payment);
-	if(bill_num!=0)
-	{
-System.out.println(bill_num);
+bill_num=dao1.fetchbillnum(payment);
+if(bill_num!=0)
+{
 session.setAttribute("bill_num",bill_num);
 int user_id=(int)(session.getAttribute("userid"));
 BillDetails obj1 = new BillDetails(user_id);
 BillDetailsDAOImpl cent = new BillDetailsDAOImpl();
 rs=cent.view(obj1);
-	}
-	
-	
+}	
 %>
 <div class="container mt-1">
 <h1><b>My Services</b></h1>
